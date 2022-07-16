@@ -8,6 +8,8 @@ import SearchIcon from '@material-ui/icons/Search';
 const styles = theme => ({
     root: {
         paddingTop: theme.spacing.unit * 2, 
+        marginLeft: theme.spacing.unit * 2,
+        marginRight: theme.spacing.unit * 3,
     },
     textField: {
         marginLeft: theme.spacing.unit,
@@ -27,6 +29,7 @@ const styles = theme => ({
             marginLeft: theme.spacing.unit,
             width: 'auto',
         },
+        border: "1px solid grey",
     },
     searchIcon: {
         width: theme.spacing.unit * 9,
@@ -61,7 +64,7 @@ function Search(props) {
     
     const { classes, search } = props;
     return (
-        <div className={classes.root}>
+        <div className={classes.root} >
             <div className={classes.search}>
                 <div className={classes.searchIcon}>
                 <SearchIcon 
@@ -76,7 +79,6 @@ function Search(props) {
                         input: classes.inputInput,
                     }}
                 />
-
             </div>
         </div>
     )
