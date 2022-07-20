@@ -21,6 +21,8 @@ const ColorButton = styled(Button)(({ theme }) => ({
   }
 }));
 
+
+
 export default function CharacterContainer(){
   return(
     <Grid container spacing={2}>

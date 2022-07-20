@@ -13,6 +13,7 @@ import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
 import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
 import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
 import { ListItemButton } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -40,20 +41,25 @@ export default function ButtonAppBar() {
   const toggleOpen=() => {
       setopen(!open);
   }
+  const navigate = useNavigate()
   return (
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
-        <Toolbar>
+        <Toolbar spacing={1}>
           <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon onClick={toggleOpen} />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
             <Box textAlign="left">きゃらまね！</Box>
           </Typography>
-          <CreateIcon />
-          <Box textAlign="right">新規作成　</Box>
-          <LibraryBooksIcon />
-          <Box textAlign="right">その他のリンク　</Box>
+          <Button onClick={() => navigate('/create')} textAlign="right" >
+            <CreateIcon />
+            新規作成
+          </Button>
+          <Button textAlign="right">
+            <LibraryBooksIcon />
+            その他のリンク
+          </Button>
           <AccountCircleOutlinedIcon />
           <Box textAlign="right">アカウント名さん　</Box>
           <Button color="inherit">Login</Button>
