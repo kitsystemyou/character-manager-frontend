@@ -31,40 +31,40 @@ export default function CharacterContainer(){
       <Grid item sm container>
         <Grid item xs container direction="column" sx={{mr:2}}>
           <Grid item xs>
-            <FormControl fullWidth sx={{ m: 1 }} variant="outlined">
+            <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
               <TextField id="characterNameInput" label="キャラクター名" variant="outlined"/>
             </FormControl>
           </Grid>
           <Grid item xs>
-            <FormControl fullWidth sx={{ m: 1 }} variant="outlined">
+            <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
               <TextField id="playerNameInput" label="プレイヤー名" variant="outlined"/>
             </FormControl>
           </Grid>
           <Grid item xs>
-            <FormControl fullWidth sx={{ m: 1 }} variant="outlined">
+            <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
               <TextField id="tagsInput" label="タグ名" variant="outlined"/>
             </FormControl>
           </Grid>
           <Grid item xs container>
             <Grid item xs={6} sx={{pr:1}}>
-              <FormControl fullWidth sx={{ m: 1 }} variant="outlined">
+              <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
               <TextField id="jobInput" label="職業" variant="outlined"/>
               </FormControl>  
             </Grid> 
             <Grid item xs={6} sx={{pl:1}}>        
-              <FormControl fullWidth sx={{ m: 1}} variant="outlined">
+              <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
               <TextField id="homePlaceInput" label="出身" variant="outlined"/>
               </FormControl>
             </Grid>
           </Grid>
           <Grid item xs container>
             <Grid item xs={6} sx={{pr:1}}>
-              <FormControl sx={{ m: 1 , width: 1 }} variant="outlined">
+              <FormControl sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined">
               <TextField id="sexInput" label="性別" variant="outlined"/>
               </FormControl>  
             </Grid> 
             <Grid item xs={6} sx={{pl:1}}>         
-              <FormControl sx={{ m: 1 , width: 1}} variant="outlined">
+              <FormControl sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined">
               <TextField id="ageInput" label="年齢" variant="outlined"/>
               </FormControl>
             </Grid>
