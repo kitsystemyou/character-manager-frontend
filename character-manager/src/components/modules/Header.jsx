@@ -16,9 +16,6 @@ import { ListItemButton } from '@mui/material';
 import { useNavigate } from "react-router-dom";
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
   appBar:{
     color: "#020826", 
     backgroundColor: "#f9f4ef"
