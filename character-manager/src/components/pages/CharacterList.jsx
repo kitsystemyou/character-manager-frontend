@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { styled } from '@mui/material/styles';
 import CharacterContainer from "../modules/CharacterContainer";
+import Header from "../modules/Header";
 import Search from "../modules/Search";
 
 const Item = styled(Box)(({ theme }) => ({
@@ -11,12 +12,15 @@ const Item = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(1),
   marginLeft: theme.spacing(3),
   marginRight: theme.spacing(3),
-  textAlign: 'left',  
+  textalign: 'left',  
 }));
 
-export default function CharacterList(){
+const CharacterList = () => {
     return(
         <div>
+            <div>
+                <Header />
+            </div>
             <div className='search'>
                 {/* 検索欄 */}
                 <Search/>
@@ -52,3 +56,4 @@ export default function CharacterList(){
         </div>
     );
 }
+export default  CharacterList

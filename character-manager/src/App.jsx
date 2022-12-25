@@ -1,16 +1,15 @@
 import './App.css';
-import Header from './components/modules/Header'
+import { Routes, Route} from "react-router-dom";
 import CharacterList from './components/pages/CharacterList'
+import CharacterCreate from './components/pages/CharacterCreate'
 
-function App() {
-  return (
-    <div className="App">
-      <div className='Header'>
-        <Header />
-      </div>
-      <div className='body'>
-        <CharacterList />
-      </div>
+const App = () => {
+  return (   
+    <div className='App'>
+      <Routes>
+        <Route path='/' element={<CharacterList />} />
+        <Route path='/create' element={<CharacterCreate />} />
+      </Routes>
     </div>
   );
 }

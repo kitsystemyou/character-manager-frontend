@@ -47,7 +47,7 @@ export default function CharacterContainer(){
           </Grid>
         </Grid>
       </Grid>
-      <Grid item direction="column" >
+      <Grid item>
           <ColorButton variant="contained" sx={{m:0.25}}> 詳細 </ColorButton>
           <ColorButton variant="contained" sx={{m:0.25}}> 編集 </ColorButton>
           <ColorButton variant="contained" sx={{m:0.25}}> 削除 </ColorButton>
