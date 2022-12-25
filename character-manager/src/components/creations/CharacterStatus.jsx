@@ -2,13 +2,13 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import FormControl from "@mui/material/FormControl";
 import TextField from '@mui/material/TextField'
-import EditableTable from "../modules/EditableTable";
+import StatusEditableTable from "../modules/EditableTable/StatusEditableTable";
 
 export default function CharacterStatus() {
   return (
     <Grid item xs container direction="column">
       <Grid item container>
-        <EditableTable />
+        <StatusEditableTable />
       </Grid>
       <Grid item container>
         <Grid item xs={4} sx={{ pr: 1 }}>

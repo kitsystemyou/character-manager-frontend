@@ -1,4 +1,4 @@
-export const FIELDS_ARRAY = [
+export const STATUS_FIELDS = [
     {
       id: 1,
       name: "能力値",
@@ -56,3 +56,31 @@ export const FIELDS_ARRAY = [
       MP: ""
     },
   ];
+
+export const BASIC_SKILLS_FIELDS = [
+  {
+    id: 11,
+    step: "あ",
+    skill: "言いくるめ",
+    init_point: 5,
+    job_point: 0,
+    concern_point: 0,
+    grow: 0,
+    other: 0,
+    summary: 0
+  }
+];
+
+export const BATTLE_SKILLS_FIELDS = [
+  {
+    id: 111,
+    step: "か",
+    skill: "キック",
+    init_point: 25,
+    job_point: 0,
+    concern_point: 0,
+    grow: 0,
+    other: 0,
+    summary: 0
+  }
+];
