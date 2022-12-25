@@ -12,7 +12,7 @@ const Item = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(1),
   marginLeft: theme.spacing(3),
   marginRight: theme.spacing(3),
-  textAlign: 'left',  
+  textalign: 'left',  
 }));
 
 const CharacterList = () => {

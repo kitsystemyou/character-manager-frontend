@@ -13,7 +13,9 @@ import CharacterBelongings from "../creations/CharacterBelongings";
 import CharacterMemo from "../creations/CharacterMemo";
 import CharacterOthers from "../creations/CharacterOthers";
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
-import { Typography } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import ScrollToTop from "../modules/ScrollToTop";
+import { useNavigate } from "react-router-dom";
 
 const Accordion = styled((props) => (
     <MuiAccordion  {...props} />
@@ -49,9 +51,13 @@ const useStyles = makeStyles((theme) => ({
 
 const CharacterCreate = () => {
     const classes = useStyles();
+    const navigate = useNavigate();
     return (
         <>
             <Header />
+            <div align='right'>
+                <Button variant="contained" onClick={() => navigate('/')}sx={{ mt: 2}}>保存</Button>
+            </div>
             <div className={classes.root}>
                 {/* キャラクター一覧 */}
                 <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
@@ -110,6 +116,9 @@ const CharacterCreate = () => {
                         <CharacterOthers />
                     </AccordionDetails>
                 </Accordion>
+            </div>
+            <div>
+                <ScrollToTop />
             </div>
         </>
     );

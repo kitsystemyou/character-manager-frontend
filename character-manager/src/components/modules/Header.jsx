@@ -43,17 +43,17 @@ export default function ButtonAppBar() {
     <div className={classes.root}>
       <AppBar position="static" className={classes.appBar}>
         <Toolbar spacing={1}>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
-            <MenuIcon onClick={toggleOpen} />
+          <IconButton edge="start" className={classes.menuButton} onClick={toggleOpen} color="inherit" aria-label="menu">
+            <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title}>
+          <Typography variant="h6" className={classes.title} onClick={() => navigate('/')}>
             <Box textAlign="left">きゃらまね！</Box>
           </Typography>
-          <Button onClick={() => navigate('/create')} textAlign="right" >
+          <Button onClick={() => navigate('/create')} textalign="right" >
             <CreateIcon />
             新規作成
           </Button>
-          <Button textAlign="right">
+          <Button textalign="right">
             <LibraryBooksIcon />
             その他のリンク
           </Button>
@@ -65,7 +65,7 @@ export default function ButtonAppBar() {
       <Drawer classes={{paper:classes.drawerPaper,}} anchor='left' open={open} onClose={toggleOpen} >
       <Toolbar />
           <List>
-            <ListItem disablePadding>
+            <ListItem >
                 <ListItemButton>
                     <ListItemIcon>
                         <LibraryBooksIcon />
@@ -73,7 +73,7 @@ export default function ButtonAppBar() {
                     <ListItemText primary="シート一覧" />
                 </ListItemButton>
             </ListItem>            
-            <ListItem disablePadding>
+            <ListItem >
                 <ListItemButton>
                     <ListItemIcon>
                         <AccountCircleOutlinedIcon />

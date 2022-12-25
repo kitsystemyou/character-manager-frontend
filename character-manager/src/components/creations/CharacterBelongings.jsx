@@ -7,11 +7,11 @@ import { Typography } from "@mui/material";
 export default function CharacterSkills() {
   return (
     <Grid item xs container direction="column">
-      <Typography variant="h4" style={{ textAlign: 'left' }} sx={{ mt: 2, mb: 2 }}>武器</Typography>
+      <Typography variant="h4" style={{ textalign: 'left' }} sx={{ mt: 2, mb: 2 }}>武器</Typography>
       <Grid item container sx={{ mb: 2 }}>
         <WeaponEditableTable />
       </Grid>
-      <Typography variant="h4" style={{ textAlign: 'left' }} sx={{ mt: 2, mb: 2 }}>所持品</Typography>
+      <Typography variant="h4" style={{ textalign: 'left' }} sx={{ mt: 2, mb: 2 }}>所持品</Typography>
       <Grid item container sx={{ mb: 2 }}>
         <BelongingsEditableTable />
       </Grid>
