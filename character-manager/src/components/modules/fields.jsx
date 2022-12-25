@@ -1,0 +1,58 @@
+export const FIELDS_ARRAY = [
+    {
+      id: 1,
+      name: "能力値",
+      STR: "",
+      CON: "",
+      POW: "",
+      DEX: "",
+      APP: "",
+      SIZ: "",
+      INT: "",
+      EDU: "",
+      HP: "",
+      MP: ""
+    },
+    {
+      id: 2,
+      name: "増加分",
+      STR: "",
+      CON: "",
+      POW: "",
+      DEX: "",
+      APP: "",
+      SIZ: "",
+      INT: "",
+      EDU: "",
+      HP: "",
+      MP: ""
+    },
+    {
+      id: 3,
+      name: "一時的",
+      STR: "",
+      CON: "",
+      POW: "",
+      DEX: "",
+      APP: "",
+      SIZ: "",
+      INT: "",
+      EDU: "",
+      HP: "",
+      MP: ""
+    },
+    {
+      id: 4,
+      name: "現在値",
+      STR: "",
+      CON: "",
+      POW: "",
+      DEX: "",
+      APP: "",
+      SIZ: "",
+      INT: "",
+      EDU: "",
+      HP: "",
+      MP: ""
+    },
+  ];
