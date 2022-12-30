@@ -1,19 +1,22 @@
 import React, {useState} from 'react';
-import Drawer from '@material-ui/core/Drawer';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
-import Box from '@mui/material/Box';
-import CreateIcon from '@material-ui/icons/Create';
-import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import { ListItemButton } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import { makeStyles } from '@mui/material/styles/';
+import Drawer from '@mui/material/Drawer';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
+import Box from '@mui/material/Box';
+import CreateIcon from '@mui/icons-material/Create';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
 
 const useStyles = makeStyles((theme) => ({
   appBar:{
@@ -24,7 +27,6 @@ const useStyles = makeStyles((theme) => ({
     marginRight: theme.spacing(2),
   },
   title: {
-    flexGrow: 1,
   },  
   drawerPaper: {
     marginRight: theme.spacing(2),
@@ -49,6 +51,7 @@ export default function ButtonAppBar() {
           <Typography variant="h6" className={classes.title} onClick={() => navigate('/')}>
             <Box textAlign="left">きゃらまね！</Box>
           </Typography>
+          <div style={{ flexGrow: 1 }}></div>
           <Button onClick={() => navigate('/create')} textalign="right" >
             <CreateIcon />
             新規作成

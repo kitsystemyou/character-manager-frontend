@@ -1,6 +1,6 @@
 import React from "react";
 import { styled } from '@mui/material/styles';
-import { makeStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@mui/material/styles';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
@@ -12,7 +12,7 @@ import CharacterSkills from "../creations/CharacterSkills";
 import CharacterBelongings from "../creations/CharacterBelongings";
 import CharacterMemo from "../creations/CharacterMemo";
 import CharacterOthers from "../creations/CharacterOthers";
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button, Typography } from "@mui/material";
 import ScrollToTop from "../modules/ScrollToTop";
 import { useNavigate } from "react-router-dom";
@@ -56,7 +56,7 @@ const CharacterCreate = () => {
         <>
             <Header />
             <div align='right'>
-                <Button variant="contained" onClick={() => navigate('/')}sx={{ mt: 2}}>保存</Button>
+                <Button variant="contained" onClick={() => navigate('/info')}sx={{ mt: 2}}>保存</Button>
             </div>
             <div className={classes.root}>
                 {/* キャラクター一覧 */}

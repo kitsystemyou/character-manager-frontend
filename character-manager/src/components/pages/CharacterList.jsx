@@ -18,14 +18,9 @@ const Item = styled(Box)(({ theme }) => ({
 const CharacterList = () => {
     return(
         <div>
-            <div>
-                <Header />
-            </div>
-            <div className='search'>
-                {/* 検索欄 */}
-                <Search/>
-            </div>
-            <hr></hr>
+            <Header />
+            <Search/>
+            <hr />
             <div className='stack'>
                 {/* キャラクター一覧 */}
                 <Stack

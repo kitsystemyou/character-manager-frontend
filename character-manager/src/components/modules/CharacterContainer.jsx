@@ -1,7 +1,7 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { styled } from '@mui/material/styles'
-import Typography from "@material-ui/core/Typography";
+import Typography from '@mui/material/Typography';
 import ButtonBase from "@mui/material/ButtonBase";
 import { Button } from "@mui/material";
 
