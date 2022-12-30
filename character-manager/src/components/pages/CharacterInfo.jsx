@@ -1,6 +1,5 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import { makeStyles } from '@mui/material/styles';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
@@ -11,7 +10,12 @@ import CharacterDetail from '../creations/CharacterDetail';
 
 const Accordion = styled((props) => (
     <MuiAccordion {...props} />
-))(() => ({
+))(({theme}) => ({
+    root: {
+        paddingTop: theme.spacing(2),
+        paddingRight: theme.spacing(7),
+        paddingLeft: theme.spacing(7),
+    },
     '&:not(:last-child)':{
         borderBottom:0,
     },
@@ -33,21 +37,12 @@ const AccordionDetails = styled(MuiAccordionDetails)(({theme}) => ({
     borderBottom: '1px solid',
 }))
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        paddingTop: theme.spacing(2),
-        paddingRight: theme.spacing(7),
-        paddingLeft: theme.spacing(7),
-    },
-}));
 
 const CharacterInfo = () => {
-    const classes = useStyles();
 
     return (
         <div>
             <Header />
-            <div className={classes.root}>
                 <Accordion  expanded = { true } sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
                     <AccordionSummary focusVisible>
                         <Typography variant="h5" style={{ color: 'white' }}>キャラクター詳細</Typography>
@@ -59,7 +54,6 @@ const CharacterInfo = () => {
                         <CharacterDetail />
                     </AccordionDetails>
                 </Accordion>
-            </div>
         </div>
     );
 };

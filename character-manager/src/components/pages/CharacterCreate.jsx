@@ -1,6 +1,5 @@
 import React from "react";
 import { styled } from '@mui/material/styles';
-import { makeStyles } from '@mui/material/styles';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
@@ -19,7 +18,12 @@ import { useNavigate } from "react-router-dom";
 
 const Accordion = styled((props) => (
     <MuiAccordion  {...props} />
-))(() => ({
+))(({theme}) => ({
+    root: {
+        paddingTop: theme.spacing(2),
+        paddingRight: theme.spacing(7),
+        paddingLeft: theme.spacing(7),
+    },
     '&:not(:last-child)': {
         borderBottom: 0,
     },
@@ -41,16 +45,9 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     borderBottom: '1px solid',
 }));
 
-const useStyles = makeStyles((theme) => ({
-    root: {
-        paddingTop: theme.spacing(2),
-        paddingRight: theme.spacing(7),
-        paddingLeft: theme.spacing(7),
-    },
-}));
+
 
 const CharacterCreate = () => {
-    const classes = useStyles();
     const navigate = useNavigate();
     return (
         <>
@@ -58,7 +55,6 @@ const CharacterCreate = () => {
             <div align='right'>
                 <Button variant="contained" onClick={() => navigate('/info')}sx={{ mt: 2}}>保存</Button>
             </div>
-            <div className={classes.root}>
                 {/* キャラクター一覧 */}
                 <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
                     <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
@@ -116,7 +112,6 @@ const CharacterCreate = () => {
                         <CharacterOthers />
                     </AccordionDetails>
                 </Accordion>
-            </div>
             <div>
                 <ScrollToTop />
             </div>

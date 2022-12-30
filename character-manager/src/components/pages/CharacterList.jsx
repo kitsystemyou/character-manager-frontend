@@ -19,7 +19,8 @@ const CharacterList = () => {
     return(
         <div>
             <Header />
-            <Search/>
+            {/* 検索欄はmui v5に対応できてないので一旦保留 */}
+            {/* <Search/> */}
             <hr />
             <div className='stack'>
                 {/* キャラクター一覧 */}
@@ -48,6 +49,7 @@ const CharacterList = () => {
                     </Item> 
                 </Stack>
             </div>
+           
         </div>
     );
 }

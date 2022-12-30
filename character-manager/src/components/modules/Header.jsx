@@ -1,7 +1,6 @@
 import React, {useState} from 'react';
-import { useNavigate } from "react-router-dom";
-import { makeStyles } from '@mui/material/styles/';
 import Drawer from '@mui/material/Drawer';
+import { styled } from '@mui/material/styles';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
@@ -12,60 +11,42 @@ import Box from '@mui/material/Box';
 import CreateIcon from '@mui/icons-material/Create';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import ListItemButton from '@mui/material/ListItemButton';
+import { List, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { ListItemButton } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  appBar:{
-    color: "#020826", 
-    backgroundColor: "#f9f4ef"
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-  },  
-  drawerPaper: {
-    marginRight: theme.spacing(2),
-    backgroundColor: "#f9f4ef"
-  },
-}));
 
 export default function ButtonAppBar() {
-  const classes = useStyles();
   const [open, setopen] = useState(false);
   const toggleOpen=() => {
       setopen(!open);
   }
   const navigate = useNavigate()
   return (
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.appBar}>
+    <div>
+      <AppBar position="static" sx={{ color: "#020826", backgroundColor: "#f9f4ef" }}>
         <Toolbar spacing={1}>
-          <IconButton edge="start" className={classes.menuButton} onClick={toggleOpen} color="inherit" aria-label="menu">
+          <IconButton edge="start" sx={{marginRight: (theme) => theme.spacing(2)}} onClick={toggleOpen} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title} onClick={() => navigate('/')}>
-            <Box textAlign="left">きゃらまね！</Box>
+          <Typography variant="h6" onClick={() => navigate('/')}>
+            <Box>きゃらまね！</Box>
           </Typography>
           <div style={{ flexGrow: 1 }}></div>
-          <Button onClick={() => navigate('/create')} textalign="right" >
+          <Button sx={{ color: "#020826", backgroundColor: "#f9f4ef" }} onClick={() => navigate('/create')}>
             <CreateIcon />
             新規作成
           </Button>
-          <Button textalign="right">
+          <Button sx={{ color: "#020826", backgroundColor: "#f9f4ef" }} >
             <LibraryBooksIcon />
             その他のリンク
           </Button>
           <AccountCircleOutlinedIcon />
-          <Box textAlign="right">アカウント名さん　</Box>
+          <Box>アカウント名さん　</Box>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Drawer classes={{paper:classes.drawerPaper,}} anchor='left' open={open} onClose={toggleOpen} >
+      <Drawer sx={{ marginRight: (theme) => theme.spacing(2),backgroundColor: "#f9f4ef"}} anchor='left' open={open} onClose={toggleOpen} >
       <Toolbar />
           <List>
             <ListItem >

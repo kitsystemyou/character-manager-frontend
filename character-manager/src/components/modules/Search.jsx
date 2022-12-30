@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withStyles } from '@mui/material/styles';
+import { styled } from '@mui/material/styles';
 import Input from '@mui/material/Input';
 import SearchIcon from '@mui/icons-material/Search';
 
@@ -88,4 +88,4 @@ Search.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles)(Search);
+export default styled(styles)(Search);
