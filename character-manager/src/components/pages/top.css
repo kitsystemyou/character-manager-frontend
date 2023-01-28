@@ -1,0 +1,16 @@
+body{
+    background-color: #375da9;
+    color: aliceblue;
+}
+
+.link:visited{
+    color: rgb(232, 138, 226);
+}
+
+h1{
+    color: antiquewhite;
+}
+
+h2{
+    color:antiquewhite;
+}
