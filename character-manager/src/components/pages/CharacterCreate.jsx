@@ -49,69 +49,58 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 const CharacterCreate = () => {
     const navigate = useNavigate();
+    const accordionInfo = [
+        {
+            Name: "基本情報",
+            Contents: <BasicCharaInfo />
+        },
+        {
+            Name: "追加情報",
+            Contents: <AdditionalInfo />
+        },
+        {
+            Name: "能力値",
+            Contents: <CharacterStatus />
+        },
+        {
+            Name: "技能値",
+            Contents: <CharacterSkills />
+        },
+        {
+            Name: "所持品",
+            Contents: <CharacterBelongings />
+        },
+        {
+            Name: "メモ",
+            Contents: <CharacterMemo />
+        },
+        {
+            Name: "その他",
+            Contents: <CharacterOthers />
+        },
+    ]
     return (
         <>
             <Header />
             <div align='right'>
                 <Button variant="contained" onClick={() => navigate('/info')}sx={{ mt: 2}}>保存</Button>
             </div>
-                {/* キャラクター一覧 */}
-                <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
-                        <Typography variant="h5" style={{ color: 'white' }}>基本情報</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <BasicCharaInfo />
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
-                        <Typography variant="h5" style={{ color: 'white' }}>追加情報</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <AdditionalInfo />
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
-                        <Typography variant="h5" style={{ color: 'white' }}>能力値</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <CharacterStatus />
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
-                        <Typography variant="h5" style={{ color: 'white' }}>技能値</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <CharacterSkills />
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
-                        <Typography variant="h5" style={{ color: 'white' }}>所持品</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <CharacterBelongings />
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
-                        <Typography variant="h5" style={{ color: 'white' }}>メモ</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <CharacterMemo />
-                    </AccordionDetails>
-                </Accordion>
-                <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
-                    <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
-                        <Typography variant="h5" style={{ color: 'white' }}>その他</Typography>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <CharacterOthers />
-                    </AccordionDetails>
-                </Accordion>
+                {
+                /* キャラクター一覧 */
+                    accordionInfo.map(ainfo => {
+                        return (
+                            <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }} key={ainfo.Name}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
+                                <Typography variant="h5" style={{ color: 'white' }}>{ainfo.Name}</Typography>
+                            </AccordionSummary>
+                            <AccordionDetails>
+                                {ainfo.Contents}
+                            </AccordionDetails>
+                            </Accordion>
+                        )
+                    })
+                }
+                
             <div>
                 <ScrollToTop />
             </div>
