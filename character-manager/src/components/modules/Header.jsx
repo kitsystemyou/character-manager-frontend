@@ -1,68 +1,54 @@
 import React, {useState} from 'react';
-import Drawer from '@material-ui/core/Drawer';
-import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Toolbar from '@material-ui/core/Toolbar';
-import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+import Drawer from '@mui/material/Drawer';
+import AppBar from '@mui/material/AppBar';
+import Toolbar from '@mui/material/Toolbar';
+import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import MenuIcon from '@mui/icons-material/Menu';
 import Box from '@mui/material/Box';
-import CreateIcon from '@material-ui/icons/Create';
-import LibraryBooksIcon from '@material-ui/icons/LibraryBooks';
-import AccountCircleOutlinedIcon from '@material-ui/icons/AccountCircleOutlined';
-import { List, ListItem, ListItemIcon, ListItemText } from '@material-ui/core';
-import { ListItemButton } from '@mui/material';
+import CreateIcon from '@mui/icons-material/Create';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem'; 
+import ListItemIcon from '@mui/material/ListItemIcon';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemButton from '@mui/material/ListItemButton';
 import { useNavigate } from "react-router-dom";
 
-const useStyles = makeStyles((theme) => ({
-  appBar:{
-    color: "#020826", 
-    backgroundColor: "#f9f4ef"
-  },
-  menuButton: {
-    marginRight: theme.spacing(2),
-  },
-  title: {
-    flexGrow: 1,
-  },  
-  drawerPaper: {
-    marginRight: theme.spacing(2),
-    backgroundColor: "#f9f4ef"
-  },
-}));
 
 export default function ButtonAppBar() {
-  const classes = useStyles();
   const [open, setopen] = useState(false);
   const toggleOpen=() => {
       setopen(!open);
   }
   const navigate = useNavigate()
   return (
-    <div className={classes.root}>
-      <AppBar position="static" className={classes.appBar}>
+    <div>
+      <AppBar position="static" sx={{ color: "#020826", backgroundColor: "#f9f4ef" }}>
         <Toolbar spacing={1}>
-          <IconButton edge="start" className={classes.menuButton} onClick={toggleOpen} color="inherit" aria-label="menu">
+          <IconButton edge="start" sx={{marginRight: (theme) => theme.spacing(2)}} onClick={toggleOpen} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton>
-          <Typography variant="h6" className={classes.title} onClick={() => navigate('/')}>
-            <Box textAlign="left">きゃらまね！</Box>
+          <Typography variant="h6" onClick={() => navigate('/')}>
+            <Box>きゃらまね！</Box>
           </Typography>
-          <Button onClick={() => navigate('/create')} textalign="right" >
+          <div style={{ flexGrow: 1 }}></div>
+          <Button sx={{ color: "#020826", backgroundColor: "#f9f4ef" }} onClick={() => navigate('/create')}>
             <CreateIcon />
             新規作成
           </Button>
-          <Button textalign="right">
+          <Button sx={{ color: "#020826", backgroundColor: "#f9f4ef" }} >
             <LibraryBooksIcon />
             その他のリンク
           </Button>
           <AccountCircleOutlinedIcon />
-          <Box textAlign="right">アカウント名さん　</Box>
+          <Box>アカウント名さん　</Box>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
-      <Drawer classes={{paper:classes.drawerPaper,}} anchor='left' open={open} onClose={toggleOpen} >
+      <Drawer sx={{ marginRight: (theme) => theme.spacing(2),backgroundColor: "#f9f4ef"}} anchor='left' open={open} onClose={toggleOpen} >
       <Toolbar />
           <List>
             <ListItem >

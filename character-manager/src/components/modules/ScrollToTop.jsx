@@ -1,7 +1,7 @@
-import { IconButton } from '@mui/material';
 import { useEffect, useState } from 'react';
-// import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import ExpandLessIcon from '@material-ui/icons/ExpandLess';
+import { IconButton } from '@mui/material';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+
 
 const PAGE_Y_OFFSET = 200
 
@@ -30,7 +30,7 @@ const ScrollToTop = () => {
     return (
       <div>
         <IconButton aria-label="scoroll to top" sx={{ mt: 2}} onClick={onScrollTop} >
-            <ExpandLessIcon />
+            <KeyboardDoubleArrowUpIcon />
         </IconButton>
       </div>
     )
