@@ -4,7 +4,6 @@ import CharacterCard from "../modules/CharacterCard";
 // import CharacterContainer from "../modules/CharacterContainer";
 // import Search from "../modules/Search";
 
-
 const CharacterList = () => {
     return(
         <div>
@@ -15,6 +14,7 @@ const CharacterList = () => {
             <div>
                 <CharacterCard />
             </div>
+           
         </div>
     );
 }
