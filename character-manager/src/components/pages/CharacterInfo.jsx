@@ -1,59 +1,30 @@
 import React from 'react';
-import { styled } from '@mui/material/styles';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
+import Card from '@mui/material/Card';
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import Header from '../modules/Header';
 import CharacterDetail from '../creations/CharacterDetail';
-
-const Accordion = styled((props) => (
-    <MuiAccordion {...props} />
-))(({theme}) => ({
-    root: {
-        paddingTop: theme.spacing(2),
-        paddingRight: theme.spacing(7),
-        paddingLeft: theme.spacing(7),
-    },
-    '&:not(:last-child)':{
-        borderBottom:0,
-    },
-    '&:before':{
-        display: 'none',
-    },
-}));
-
-const AccordionSummary = styled((props) => (
-    <MuiAccordionSummary {...props} />
-))(({ theme}) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#8c7851',
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({theme}) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F9F4EF',
-    padding: theme.spacing(2),
-    borderTop: '1px solid',
-    borderBottom: '1px solid',
-}))
-
+import Box from '@mui/material/Box';
+import Grid from "@mui/material/Grid";
 
 const CharacterInfo = () => {
 
     return (
         <div>
             <Header />
-                <Accordion  expanded = { true } sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }}>
-                    <AccordionSummary focusVisible>
-                        <Typography variant="h5" style={{ color: 'white' }}>キャラクター詳細</Typography>
+            <Card sx={{ mt:2, border:2, borderColor: '#8c7851' }}>
+                <Box sx={{backgroundColor: '#8c7851'}}>
+                    <Grid container>
+                        <Grid item sx={{m:1}}>
+                            <Typography variant="h4" color='white' align='left'>キャラクター詳細</Typography>
+                        </Grid>            
                         <div style={{ flexGrow: 1 }}></div>
-                        <Button variant="contained">編集</Button>
-                        <Button variant="contained">出力</Button>
-                    </AccordionSummary>
-                    <AccordionDetails>
-                        <CharacterDetail />
-                    </AccordionDetails>
-                </Accordion>
+                        <Button variant="contained" sx={{m:1}}>編集</Button>
+                        <Button variant="contained" sx={{m:1}}>出力</Button> 
+                    </Grid>
+                </Box>
+                <CharacterDetail />
+            </Card>
         </div>
     );
 };

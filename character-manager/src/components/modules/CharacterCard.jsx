@@ -7,6 +7,7 @@ import CardContent from '@mui/material/CardContent';
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography';
 import { Button } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 
 const ColorButton = styled(Button)(({ theme }) => ({
@@ -18,6 +19,7 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 export default function CharacterCard(){
+    const navigate = useNavigate();
     const characterOverviewInfo = [
         {
             id: 1,
@@ -89,7 +91,7 @@ export default function CharacterCard(){
                         </Typography>
                     </CardContent>
                     <CardActions >
-                        <ColorButton variant="contained"> 詳細 </ColorButton>
+                        <ColorButton variant="contained" onClick={() => navigate('/info')}> 詳細 </ColorButton>
                         <ColorButton variant="contained"> 編集 </ColorButton>
                         <ColorButton variant="contained"> 削除 </ColorButton>
                     </CardActions>
