@@ -6,7 +6,7 @@ import TextField from '@mui/material/TextField';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
 import MuiAccordionDetails from '@mui/material/AccordionDetails';
-import AdditionalInfo from "../creations/AdditionalInfo";
+import AdditionalInfoReadOnly from "../creations/AdditionalInfoReadOnly";
 import CharacterBelongings from "../creations/CharacterBelongings";
 import CharacterMemo from "../creations/CharacterMemo";
 import CharacterOthers from "../creations/CharacterOthers";
@@ -54,7 +54,7 @@ export default function CharacterDetail(){
     const accordionInfo = [
         {
             Name: "追加情報",
-            Contents: <AdditionalInfo />
+            Contents: <AdditionalInfoReadOnly />
         },
         {
             Name: "武器・所持品",
@@ -89,41 +89,39 @@ export default function CharacterDetail(){
             <Grid item xs={3} sx={{p:1,minWidth:160, minHeight: 160, maxWidth:480, maxHeight: 480}}>
                 <Icon alt="complex" src="/coharu.png" />
             </Grid>
-            <Grid item xs={9}>
-                <Grid container sx={{ m: 1 }}>
-                    <Grid item xs={12} sx={{mt:1, mb:1, pr:2}}>
+            <Grid item xs={9} container sx={{ p: 1 }}>
+                    <Grid item xs={12} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="PC名前" defaultValue="山田　花子" InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={12} sx={{mt:1, mb:1, pr:2}}>
+                    <Grid item xs={12} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="PL名前" defaultValue="ぶためん" InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={4} sx={{mt:1, mb:1, pr:2}}>
+                    <Grid item xs={4} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="職業" defaultValue="整体師" InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={4} sx={{mt:1, mb:1, pr:2}}>
+                    <Grid item xs={4} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="性別" defaultValue="漢女" InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={4} sx={{mt:1, mb:1, pr:2}}>
+                    <Grid item xs={4} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="年齢" defaultValue="18♡" InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={3} sx={{mt:1, mb:1, pr:2}}>
+                    <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="SAN値" defaultValue="100" InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={3} sx={{mt:1, mb:1, pr:2}}>
+                    <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="HP" defaultValue="10" InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={3} sx={{mt:1, mb:1, pr:2}}>
+                    <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="MP" defaultValue="12" InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={3} sx={{mt:1, mb:1, pr:2}}>
+                    <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="DB" defaultValue="+1d4" InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={12} sx={{mt:1, mb:1, pr:2}}>
+                    <Grid item xs={12} sx={{mt:1, mb:1, pr:1}}>
                         <TextField fullWidth sx={{backgroundColor:'white' }}id="outlined-read-only-input" label="タグ名" defaultValue="aaa" InputProps={{readOnly: true}}/>
                     </Grid>
                 </Grid>
-            </Grid>
-            <Grid container sx={{ m: 1 }}>
+            <Grid item xs={12} container sx={{ m: 1 }}>
                 <Grid item xs={1} sx={{ mr: 1 }}>
                     <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="STR" defaultValue="10" InputProps={{readOnly: true}}/>
                 </Grid>
@@ -161,7 +159,7 @@ export default function CharacterDetail(){
             <Grid item xs={12}>
             <hr />
             </Grid>
-            <Grid container>
+            <Grid item xs={12} container>
                 <Grid item xs={3} sx={{ pr: 1 }}>
                     <DataGrid
                     autoHeight
