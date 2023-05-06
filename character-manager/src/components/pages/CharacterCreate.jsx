@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { styled } from '@mui/material/styles';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
@@ -45,14 +45,22 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     borderBottom: '1px solid',
 }));
 
-
-
 const CharacterCreate = () => {
     const navigate = useNavigate();
+    const [characterName, setCharacterName]=useState("初期値");
+    // const [playerName, setPlayerName]=useState("");
+    // const [tags, setTags]=useState("");
+    // const [job, setJob]=useState("");
+    // const [homePlace, setHomePlace]=useState("");
+    // const [sex, setSex]=useState("");
+    // const [age, setAge]=useState("");
+
     const accordionInfo = [
         {
             Name: "基本情報",
-            Contents: <BasicCharaInfo />
+            Contents: <BasicCharaInfo 
+                charaName = {characterName}
+                setCharaName = {setCharacterName} />
         },
         {
             Name: "追加情報",
@@ -85,6 +93,7 @@ const CharacterCreate = () => {
             <div align='right'>
                 <Button variant="contained" onClick={() => navigate('/info')}sx={{ mt: 2}}>保存</Button>
             </div>
+            <div>親要素[キャラ名]：{characterName}</div>
                 {
                 /* キャラクター一覧 */
                     accordionInfo.map(ainfo => {

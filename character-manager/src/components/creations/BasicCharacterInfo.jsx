@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect }  from "react";
 import Grid from "@mui/material/Grid";
 import { styled } from '@mui/material/styles'
 import FormControl from '@mui/material/FormControl';
@@ -21,7 +21,13 @@ const ColorButton = styled(Button)(({ theme }) => ({
   }
 }));
 
-export default function BasicCharacterInfo(){
+export default function BasicCharacterInfo(props){
+  const changeForm = (e) => {
+    console.log(e.target.value)
+  }
+    
+  useEffect(() => props.setCharaName(props.charaName),[props]);
+
   return(
     <Grid container spacing={2}>
       <Grid item >
@@ -31,41 +37,42 @@ export default function BasicCharacterInfo(){
       <Grid item sm container>
         <Grid item xs container direction="column" sx={{mr:2}}>
           <Grid item xs>
-            <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="characterNameInput" label="キャラクター名" variant="outlined"/>
+            <FormControl id="characterNameInput" fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined" onChange={(event)=>props.setCharaName(event.target.value)}>
+              <TextField label="キャラクター名" variant="outlined"/>
+            </FormControl>
+            <h2>{props.charaName}</h2>
+          </Grid>
+          <Grid item xs>
+            <FormControl id="playerNameInput" fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined" onChange={changeForm}>
+              <TextField label="プレイヤー名" variant="outlined"/>
             </FormControl>
           </Grid>
           <Grid item xs>
-            <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="playerNameInput" label="プレイヤー名" variant="outlined"/>
-            </FormControl>
-          </Grid>
-          <Grid item xs>
-            <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="tagsInput" label="タグ名" variant="outlined"/>
+            <FormControl id="tagsInput" fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined" onChange={changeForm}>
+              <TextField label="タグ名" variant="outlined"/>
             </FormControl>
           </Grid>
           <Grid item xs container>
             <Grid item xs={6} sx={{pr:1}}>
-              <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="jobInput" label="職業" variant="outlined"/>
+              <FormControl id="jobInput" fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined" onChange={changeForm}>
+              <TextField label="職業" variant="outlined"/>
               </FormControl>  
             </Grid> 
             <Grid item xs={6} sx={{pl:1}}>        
-              <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="homePlaceInput" label="出身" variant="outlined"/>
+              <FormControl id="homePlaceInput" fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined" onChange={changeForm}>
+              <TextField label="出身" variant="outlined"/>
               </FormControl>
             </Grid>
           </Grid>
           <Grid item xs container>
             <Grid item xs={6} sx={{pr:1}}>
-              <FormControl sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="sexInput" label="性別" variant="outlined"/>
+              <FormControl id="sexInput" sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined" onChange={changeForm}>
+              <TextField label="性別" variant="outlined"/>
               </FormControl>  
             </Grid> 
             <Grid item xs={6} sx={{pl:1}}>         
-              <FormControl sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="ageInput" label="年齢" variant="outlined"/>
+              <FormControl id="ageInput" sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined" onChange={changeForm}>
+              <TextField label="年齢" variant="outlined"/>
               </FormControl>
             </Grid>
           </Grid>
