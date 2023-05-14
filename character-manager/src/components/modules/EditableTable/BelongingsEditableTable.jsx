@@ -24,4 +24,4 @@ const columns = [
     { field: 'detail', headerName: '詳細', type: 'string', flex: 6, editable: true, sortable: false, headerAlign: 'center' },
 ];
 
-const rows = fields.BASIC_SKILLS_FIELDS;
+const rows = fields.BELONGINGS_DATA_FIELDS;

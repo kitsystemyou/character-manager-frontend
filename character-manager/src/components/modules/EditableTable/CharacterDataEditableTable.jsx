@@ -23,4 +23,4 @@ const columns = [
     { field: 'datum', headerName: '内容', type: 'number', flex: 3, editable: true, sortable: false, headerAlign: 'center' },
 ];
 
-const rows = fields.BASIC_SKILLS_FIELDS;
+const rows = fields.CHARACTER_DATA_FIELDS;

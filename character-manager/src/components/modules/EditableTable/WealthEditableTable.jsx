@@ -19,8 +19,8 @@ export default function WealthEditableTable() {
 }
 
 const columns = [
-    { field: 'Wealth', headerName: '収入と財産', type: 'string', flex: 1, editable: true, sortable: true, headerAlign: 'center' },
+    { field: 'wealth', headerName: '収入と財産', type: 'string', flex: 1, editable: true, sortable: true, headerAlign: 'center' },
     { field: 'remarks', headerName: '金額', type: 'string', flex: 3, editable: true, sortable: false, headerAlign: 'center' },
 ];
 
-const rows = fields.BASIC_SKILLS_FIELDS;
+const rows = fields.WEALTH_DATA_FIELDS;

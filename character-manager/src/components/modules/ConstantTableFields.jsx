@@ -793,3 +793,55 @@ export const BATTLE_SKILLS_FIELDS = [
     summary: 0
 }
 ];
+
+export const WEAPON_DATA_FIELDS = [
+
+    {
+        id: 1,
+        weapon: "拳銃",
+        skill_point: 1,
+        damage: "2D6",
+        range: "20m",
+        number_of_attacks: 0,
+        ammunition_capacity: 0,
+        failure_value: 0,
+        endurance: 0
+    },
+    ];
+
+export const BELONGINGS_DATA_FIELDS = [
+
+    {
+        id: 1,
+        item: "筆記用具",
+        quantity: 1,
+        detail: "なんかいろいろ入っている"
+    },
+    ];
+
+export const HISTORY_DATA_FIELDS = [
+
+    {
+        id: 1,
+        scenario: "毒入りスープ",
+        remarks: "メンバー"
+    },
+    ];
+
+export const CHARACTER_DATA_FIELDS = [
+
+    {
+        id: 1,
+        profile: "性格",
+        datum: "気まぐれでうそつき"
+    },
+    ];
+
+export const WEALTH_DATA_FIELDS = [
+
+    {
+        id: 1,
+        wealth: "1000万",
+        remarks: "20万"
+    },
+    ];
