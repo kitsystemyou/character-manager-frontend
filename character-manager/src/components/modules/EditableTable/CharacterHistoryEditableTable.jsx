@@ -20,7 +20,7 @@ export default function CharacterHistoryEditableTable() {
 
 const columns = [
     { field: 'scenario', headerName: 'シナリオ名', type: 'string', flex: 1, editable: true, sortable: true, headerAlign: 'center' },
-    { field: 'remarks', headerName: '備考', type: 'number', flex: 3, editable: true, sortable: false, headerAlign: 'center' },
+    { field: 'remarks', headerName: '備考', type: 'string', flex: 3, editable: true, sortable: false, headerAlign: 'center' },
 ];
 
-const rows = fields.BASIC_SKILLS_FIELDS;
+const rows = fields.HISTORY_DATA_FIELDS;
