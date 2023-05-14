@@ -10,7 +10,7 @@ const App = () => {
       <Routes>
         <Route path='/' element={<CharacterList />} />
         <Route path='/create' element={<CharacterCreate />} />
-        <Route path='/info' element={<CharacterInfo />} />
+        <Route path='/info/:game_system/:character_id' element={<CharacterInfo />} />
       </Routes>
     </div>
   );

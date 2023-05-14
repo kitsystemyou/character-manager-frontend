@@ -70,6 +70,7 @@ export default function CharacterCard(){
             updateTime: "YYYY-MM-DD hh:mm:ss"
         }
     ]
+
     return(
         <>
         <Grid container spacing={1}>
@@ -91,7 +92,13 @@ export default function CharacterCard(){
                         </Typography>
                     </CardContent>
                     <CardActions >
-                        <ColorButton variant="contained" onClick={() => navigate('/info')}> 詳細 </ColorButton>
+                        <ColorButton variant="contained" onClick={() => {
+                            if (coInfo.gameSystem === "クトゥルフ神話TRPG") {
+                                coInfo.gameSystem = "coc"
+                                console.log(coInfo.gameSystem)
+                            }
+                            navigate(`/info/${coInfo.gameSystem}/${coInfo.id}`)
+                        }}> 詳細 </ColorButton>
                         <ColorButton variant="contained"> 編集 </ColorButton>
                         <ColorButton variant="contained"> 削除 </ColorButton>
                     </CardActions>
