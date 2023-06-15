@@ -1,0 +1,88 @@
+{
+    "character":[
+        {
+            "id": 0,
+            "user_id": "string",
+            "character_name": "kale",
+            "player_name": "yoh",
+            "game_system": "coc",
+            "prof_img_path": "/path/to/image",
+            "tags": "coc,hogehoge",
+            "create_time": "2019-08-24",
+            "update_time": "2019-08-24",
+            "delete_time": "2019-08-24"
+        }
+    ],
+    "character_all_info":[
+        {
+            "id": 0,
+            "user_id": "string",
+            "character_name": "kale",
+            "player_name": "yoh",
+            "game_system": "coc",
+            "prof_img_path": "/path/to/image",
+            "tags": "coc,hogehoge",
+            "create_time": "2019-08-24",
+            "update_time": "2019-08-24",
+            "delete_time": "2019-08-24",
+            "coc_meta_info": {
+                "job": "student",
+                "sex": "male",
+                "age": "25",
+                "height": "170",
+                "weight": "60",
+                "hair_color": "black",
+                "eye_color": "black",
+                "skin_color": "white",
+                "home_place": "tokyo",
+                "mental_disorder": "",
+                "edu_background": "bachelar",
+                "memo": "memo"
+            },
+            "coc_status_parameters":{
+                "str": 13,
+                "con": 13,
+                "pow": 13,
+                "dex": 13,
+                "app": 13,
+                "size": 13,
+                "int": 13,
+                "edu": 13,
+                "hp": 13,
+                "mp": 13,
+                "init_san": 50,
+                "current_san": 50,
+                "idea": 13,
+                "knowledge": 13,
+                "damage_bonus": 13,
+                "luck": 13,
+                "max_job_point": 200,
+                "max_concern_point": 200
+            },
+            "coc_skills": [
+                {
+                "skill_name":"こぶし",
+                "job_point":"20",
+                "concern_point":"10",
+                "grow":"",
+                "other":"",
+                "skill_type":"attack"
+                },
+                {
+                    "skill_name":"目星",
+                    "job_point":"30",
+                    "concern_point":"5",
+                    "grow":"",
+                    "other":"",
+                    "skill_type":"discover"
+                }
+            ]
+          }
+        ],
+    "test": [
+        {
+            "id": 0,
+            "contents": "text"
+        }
+    ]
+}
