@@ -50,7 +50,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 }));
 
 
-export default function CharacterDetail(){
+export default function CharacterDetail(props){
     const accordionInfo = [
         {
             Name: "追加情報",
@@ -91,69 +91,69 @@ export default function CharacterDetail(){
             </Grid>
             <Grid item xs={9} container sx={{ p: 1 }}>
                     <Grid item xs={12} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth id="outlined-read-only-input" label="PC名前" defaultValue="山田　花子" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth id="outlined-read-only-input" label="PC名前" value={props.character.character_name} InputProps={{readOnly: true}}/>
                     </Grid>
                     <Grid item xs={12} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth id="outlined-read-only-input" label="PL名前" defaultValue="ぶためん" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth id="outlined-read-only-input" label="PL名前" value={props.character.player_name} InputProps={{readOnly: true}}/>
                     </Grid>
                     <Grid item xs={4} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth id="outlined-read-only-input" label="職業" defaultValue="整体師" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth id="outlined-read-only-input" label="職業" value={props.character.coc_meta_info.job} InputProps={{readOnly: true}}/>
                     </Grid>
                     <Grid item xs={4} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth id="outlined-read-only-input" label="性別" defaultValue="漢女" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth id="outlined-read-only-input" label="性別" value={props.character.coc_meta_info.sex} InputProps={{readOnly: true}}/>
                     </Grid>
                     <Grid item xs={4} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth id="outlined-read-only-input" label="年齢" defaultValue="18♡" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth id="outlined-read-only-input" label="年齢" value={props.character.coc_meta_info.age} InputProps={{readOnly: true}}/>
                     </Grid>
                     <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth id="outlined-read-only-input" label="SAN値" defaultValue="100" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth id="outlined-read-only-input" label="SAN値" value={props.character.coc_status_parameters.init_san} InputProps={{readOnly: true}}/>
                     </Grid>
                     <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth id="outlined-read-only-input" label="HP" defaultValue="10" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth id="outlined-read-only-input" label="HP" value={props.character.coc_status_parameters.hp} InputProps={{readOnly: true}}/>
                     </Grid>
                     <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth id="outlined-read-only-input" label="MP" defaultValue="12" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth id="outlined-read-only-input" label="MP" value={props.character.coc_status_parameters.mp} InputProps={{readOnly: true}}/>
                     </Grid>
                     <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth id="outlined-read-only-input" label="DB" defaultValue="+1d4" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth id="outlined-read-only-input" label="DB" value={props.character.coc_status_parameters.damage_bonus} InputProps={{readOnly: true}}/>
                     </Grid>
                     <Grid item xs={12} sx={{mt:1, mb:1, pr:1}}>
-                        <TextField fullWidth sx={{backgroundColor:'white' }}id="outlined-read-only-input" label="タグ名" defaultValue="aaa" InputProps={{readOnly: true}}/>
+                        <TextField fullWidth sx={{backgroundColor:'white' }}id="outlined-read-only-input" label="タグ名" value={props.character.tags} InputProps={{readOnly: true}}/>
                     </Grid>
                 </Grid>
             <Grid item xs={12} container sx={{ m: 1 }}>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="STR" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="STR" value={props.character.coc_status_parameters.str} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="CON" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="CON" value={props.character.coc_status_parameters.con} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="POW" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="POW" value={props.character.coc_status_parameters.pow} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="DEX" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="DEX" value={props.character.coc_status_parameters.dex} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="APP" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="APP" value={props.character.coc_status_parameters.app} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="SIZ" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="SIZ" value={props.character.coc_status_parameters.size} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="INT" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="INT" value={props.character.coc_status_parameters.int} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="EDU" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="EDU" value={props.character.coc_status_parameters.edu} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="アイデア" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="アイデア" value={props.character.coc_status_parameters.idea} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="幸運" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="幸運" value={props.character.coc_status_parameters.luck} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="知識" defaultValue="10" InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="知識" value={props.character.coc_status_parameters.knowledge} InputProps={{readOnly: true}}/>
                 </Grid>
             </Grid>
             <Grid item xs={12}>
