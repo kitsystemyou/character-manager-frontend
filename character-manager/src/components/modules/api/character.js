@@ -2,9 +2,6 @@ import axios from "axios"
 
 const ENDPOINT = "http://localhost:3001/"
 
-// const todo = [{
-//     "id": 0,
-// }]
 
 const characterAPI = {
     async getAll(id) {
