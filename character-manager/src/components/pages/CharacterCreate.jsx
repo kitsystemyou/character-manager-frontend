@@ -38,6 +38,103 @@ const AccordionSummary = styled((props) => (
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#8c7851',
 }));
 
+const basicCharaInfoInit = {
+    character_name: "",
+    player_name: "",
+    tags: "",
+    job: "",
+    home_place: "",
+    sex: "",
+    age: ""    
+}
+
+const additionalInfoInit = {
+    edu_backgroud: "",
+    mental_disorder: "",
+    height: "",
+    weight: "",
+    hair_color: "",
+    eye_color: "",
+    skin_color: "",
+    memo:""
+}
+
+const characterStatusInit = {
+    str: 0,
+    con: 0,
+    pow: 0,
+    dex: 0,
+    app: 0,
+    size: 0,
+    int: 0,
+    edu: 0,
+    hp: 0,
+    mp: 0,
+    init_san: "",
+    current_san: "",
+    idea: "",
+    knowledge: "",
+    damage_bonus: "",
+    luck: "",
+    max_job_point: "",
+    max_concern_point: ""
+}
+
+const characterSkillsInit = {
+    coc_skills: []
+}
+
+//　仮決め
+const characterBelongingsInit = {
+    weapons: [
+        {
+            weapon:"",
+            skill_point:"",
+            damage:"",
+            range:"",
+            number_of_attacks:"",
+            ammunition_capacity:"",
+            failure_value:"",
+            endurance:"", 
+        }
+    ],
+    belongings:[
+        {
+            item:"",
+            quantity:"",
+            detail:"",
+        }
+    ]
+}
+//　仮決め
+const characterMemoInit = {
+    memo: ""
+}
+//　仮決め
+const characterOthersInit = {
+    history:[
+        {
+            sceinario:"",
+            memo:""
+        }
+    ],
+    character_data:[
+        {
+            profile:"",
+            datum:""
+        }
+    ],
+    wealth:[
+        {
+            wealth:"",
+            remarks:""
+        }
+    ],
+    magic_book:"",
+    artifact:"",
+    mythical_creature:""
+}
+
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F9F4EF',
     padding: theme.spacing(2),
@@ -47,44 +144,56 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 const CharacterCreate = () => {
     const navigate = useNavigate();
-    const [characterName, setCharacterName]=useState("初期値");
-    // const [playerName, setPlayerName]=useState("");
-    // const [tags, setTags]=useState("");
-    // const [job, setJob]=useState("");
-    // const [homePlace, setHomePlace]=useState("");
-    // const [sex, setSex]=useState("");
-    // const [age, setAge]=useState("");
+    const [basicCharaInfo, setbasicCharaInfo]=useState(basicCharaInfoInit);
+    const [additionalInfo, setAdditionalInfo]=useState(additionalInfoInit);
+    const [characterStatus, setCharacterStatus]=useState(characterStatusInit);
+    const [characterSkills, setCharacterSkills]=useState(characterSkillsInit);
+    const [characterBelongings, setCharacterBelongings]=useState(characterBelongingsInit);
+    const [characterMemo, setCharacterMemo]=useState(characterMemoInit);
+    const [characterOthers, setCharacterOthers]=useState(characterOthersInit);
 
     const accordionInfo = [
         {
             Name: "基本情報",
             Contents: <BasicCharaInfo 
-                charaName = {characterName}
-                setCharaName = {setCharacterName} />
+                basicCharaInfo = {basicCharaInfo}
+                setbasicCharaInfo = {setbasicCharaInfo} />
         },
         {
             Name: "追加情報",
-            Contents: <AdditionalInfo />
+            Contents: <AdditionalInfo 
+                additionalInfo = {additionalInfo}
+                setAdditionalInfo = {setAdditionalInfo} />
         },
         {
             Name: "能力値",
-            Contents: <CharacterStatus />
+            Contents: <CharacterStatus 
+                characterStatus = {characterStatus}
+                setCharacterStatus = {setCharacterStatus}/>
         },
         {
             Name: "技能値",
-            Contents: <CharacterSkills />
+            Contents: <CharacterSkills 
+                characterSkills = {characterSkills}
+                setCharacterSkills = {setCharacterSkills}/>
         },
         {
             Name: "所持品",
-            Contents: <CharacterBelongings />
+            Contents: <CharacterBelongings 
+                characterBelongings = {characterBelongings}
+                setCharacterBelongings = {setCharacterBelongings} />
         },
         {
             Name: "メモ",
-            Contents: <CharacterMemo />
+            Contents: <CharacterMemo 
+                characterMemo = {characterMemo}
+                setCharacterMemo = {setCharacterMemo} />
         },
         {
             Name: "その他",
-            Contents: <CharacterOthers />
+            Contents: <CharacterOthers 
+                characterOthers = {characterOthers}
+                setCharacterOthers = {setCharacterOthers}/>
         },
     ]
     return (
@@ -93,7 +202,7 @@ const CharacterCreate = () => {
             <div align='right'>
                 <Button variant="contained" onClick={() => navigate('/info')}sx={{ mt: 2}}>保存</Button>
             </div>
-            <div>親要素[キャラ名]：{characterName}</div>
+            <div>キャラ名：{basicCharaInfo.character_name}</div>
                 {
                 /* キャラクター一覧 */
                     accordionInfo.map(ainfo => {
