@@ -67,7 +67,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
   }, 
   {
     id: 102,
@@ -78,7 +79,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
   },
   {
     id: 3,
@@ -90,7 +92,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 4,
@@ -102,7 +105,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 5,
@@ -114,7 +118,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 6,
@@ -126,7 +131,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 7,
@@ -138,7 +144,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 8,
@@ -150,7 +157,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 9,
@@ -162,7 +170,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 10,
@@ -174,7 +183,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 11,
@@ -186,7 +196,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 12,
@@ -198,7 +209,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 13,
@@ -210,7 +222,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 14,
@@ -222,7 +235,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 15,
@@ -234,7 +248,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 16,
@@ -246,7 +261,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 17,
@@ -258,7 +274,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 18,
@@ -270,7 +287,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 19,
@@ -282,7 +300,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 20,
@@ -294,7 +313,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 21,
@@ -306,7 +326,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 22,
@@ -318,7 +339,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 23,
@@ -330,7 +352,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 24,
@@ -342,7 +365,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 25,
@@ -354,7 +378,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 26,
@@ -366,7 +391,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 27,
@@ -378,7 +404,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 28,
@@ -390,7 +417,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 29,
@@ -402,7 +430,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 30,
@@ -414,7 +443,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 31,
@@ -426,7 +456,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 32,
@@ -438,7 +469,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 33,
@@ -450,7 +482,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 34,
@@ -462,7 +495,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 35,
@@ -474,7 +508,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 36,
@@ -486,7 +521,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 37,
@@ -498,7 +534,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 38,
@@ -510,7 +547,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 39,
@@ -522,7 +560,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 40,
@@ -534,7 +573,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 41,
@@ -546,7 +586,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 42,
@@ -558,7 +599,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 43,
@@ -570,7 +612,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 44,
@@ -582,7 +625,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 45,
@@ -594,7 +638,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 46,
@@ -606,7 +651,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 47,
@@ -618,7 +664,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 48,
@@ -630,7 +677,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 49,
@@ -642,7 +690,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 50,
@@ -654,7 +703,8 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 51,
@@ -666,19 +716,21 @@ export const BASIC_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
-  id: 52,
-  step: "ら",
-  skill_name: "歴史",
-  character_id: 1,
-  init_point: 20,
-  job_point: 0,
-  concern_point: 0,
-  grow: 0,
-  other: 0,
-  summary: 0
+    id: 52,
+    step: "ら",
+    skill_name: "歴史",
+    character_id: 1,
+    init_point: 20,
+    job_point: 0,
+    concern_point: 0,
+    grow: 0,
+    other: 0,
+    summary: 0,
+    init_flag: true
 },
 ];
 
@@ -694,7 +746,8 @@ export const BATTLE_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 54,
@@ -706,7 +759,8 @@ export const BATTLE_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 55,
@@ -718,7 +772,8 @@ export const BATTLE_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 56,
@@ -730,7 +785,8 @@ export const BATTLE_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 57,
@@ -742,7 +798,8 @@ export const BATTLE_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 58,
@@ -754,7 +811,8 @@ export const BATTLE_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 59,
@@ -766,7 +824,8 @@ export const BATTLE_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 60,
@@ -778,7 +837,8 @@ export const BATTLE_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 },
 {
     id: 61,
@@ -790,7 +850,8 @@ export const BATTLE_SKILLS_FIELDS = [
     concern_point: 0,
     grow: 0,
     other: 0,
-    summary: 0
+    summary: 0,
+    init_flag: true
 }
 ];
 
