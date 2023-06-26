@@ -59,7 +59,7 @@ export const STATUS_FIELDS = [
 
 export const BASIC_SKILLS_FIELDS = [
   {
-    id: 101,
+    id: 1,
     step: "あ",
     skill_name: "言いくるめ",
     init_point: 5,
@@ -71,7 +71,7 @@ export const BASIC_SKILLS_FIELDS = [
     init_flag: true
   }, 
   {
-    id: 102,
+    id: 2,
     step: "あ",
     skill_name: "医学",
     init_point: 5,

@@ -1,9 +1,10 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import { DataGrid } from '@mui/x-data-grid';
 import * as fields from "../ConstantTableFields";
 import _ from 'lodash';
 
-export default function BattleSkillsEditableTable() {    
+export default function BattleSkillsEditableTable(props) {    
+    useEffect(() => props.setCharacterSkills(props.characterSkills), [props]);
     const [status, setStatus] = useState(rows);
 
     const changeCell = (v) => {
@@ -13,9 +14,22 @@ export default function BattleSkillsEditableTable() {
                     - status[idx][v.field] + v.value;
         newValue[idx][v.field] = v.value;
         newValue[idx].summary = sum;
+        newValue[idx].init_flag = false;
         setStatus(newValue);
+        // テーブルの値を親コンポーネントに返す関数
+        setTableValue(newValue)
     }
 
+    const setTableValue = (newValue) => {
+        let tableValue = [];
+        for(let i=0; i<newValue.length; ++i){
+            if(!newValue[i].init_flag){
+                tableValue[tableValue.length] = newValue[i]
+            }
+        }
+        props.setCharacterSkills({...props.characterSkills, coc_skills:tableValue});
+        console.log(tableValue);
+    }
     return (
         <div style={{ width: '100%' }}>
             <DataGrid

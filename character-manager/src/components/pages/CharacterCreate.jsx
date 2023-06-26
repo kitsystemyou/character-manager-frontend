@@ -84,6 +84,14 @@ const characterSkillsInit = {
     coc_skills: []
 }
 
+const characterBasicSkillsInit = {
+    coc_skills: []
+}
+
+const characterBattleSkillsInit = {
+    coc_skills: []
+}
+
 //　仮決め
 const characterBelongingsInit = {
     weapons: [
@@ -148,6 +156,8 @@ const CharacterCreate = () => {
     const [additionalInfo, setAdditionalInfo]=useState(additionalInfoInit);
     const [characterStatus, setCharacterStatus]=useState(characterStatusInit);
     const [characterSkills, setCharacterSkills]=useState(characterSkillsInit);
+    const [characterBasicSkills, setCharacterBasicSkills]=useState(characterBasicSkillsInit);
+    const [characterBattleSkills, setCharacterBattleSkills]=useState(characterBattleSkillsInit);
     const [characterBelongings, setCharacterBelongings]=useState(characterBelongingsInit);
     const [characterMemo, setCharacterMemo]=useState(characterMemoInit);
     const [characterOthers, setCharacterOthers]=useState(characterOthersInit);
@@ -174,8 +184,10 @@ const CharacterCreate = () => {
         {
             Name: "技能値",
             Contents: <CharacterSkills 
-                characterSkills = {characterSkills}
-                setCharacterSkills = {setCharacterSkills}/>
+                characterBasicSkills = {characterBasicSkills}
+                setCharacterBasicSkills = {setCharacterBasicSkills}
+                characterBattleSkills = {characterBattleSkills}
+                setCharacterBattleSkills = {setCharacterBattleSkills}/>
         },
         {
             Name: "所持品",
@@ -206,7 +218,8 @@ const CharacterCreate = () => {
             {/* <div>技能値:{characterSkills.coc_skills}</div> */}
             <div align='right'>
                 <Button variant="contained" onClick={() => {
-                    console.log(characterSkills)
+                    console.log(characterBasicSkills)
+                    console.log(characterBattleSkills)
                     }}>コンソールに表示</Button>
             </div>
                 {
