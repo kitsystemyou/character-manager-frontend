@@ -214,14 +214,6 @@ const CharacterCreate = () => {
             <div align='right'>
                 <Button variant="contained" onClick={() => navigate('/info')}sx={{ mt: 2}}>保存</Button>
             </div>
-            <div>キャラ名：{basicCharaInfo.character_name}</div>
-            {/* <div>技能値:{characterSkills.coc_skills}</div> */}
-            <div align='right'>
-                <Button variant="contained" onClick={() => {
-                    console.log(characterBasicSkills)
-                    console.log(characterBattleSkills)
-                    }}>コンソールに表示</Button>
-            </div>
                 {
                 /* キャラクター一覧 */
                     accordionInfo.map(ainfo => {
