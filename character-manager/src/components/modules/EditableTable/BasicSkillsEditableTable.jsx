@@ -1,21 +1,24 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect} from "react";
 import { DataGrid } from '@mui/x-data-grid';
-import * as fields from "../ConstantTableFields";
 import _ from 'lodash';
 
 export default function BasicSkillsEditableTable(props) {
     useEffect(() => props.setCharacterSkills(props.characterSkills), [props]);
-    const [status, setStatus] = useState(rows);
+    useEffect(() => props.setCharacterSkillsTableStatus(props.characterSkillsTableStatus), [props]);
 
     const changeCell = (v) => {
-        let newValue = _.cloneDeep(status);
-        let idx = status.findIndex(d => d.id === v.id);
-        let sum = status[idx].init_point + status[idx].job_point + status[idx].concern_point + status[idx].grow + status[idx].other
-                    - status[idx][v.field] + v.value;
+        let newValue = _.cloneDeep(props.characterSkillsTableStatus);
+        let idx = props.characterSkillsTableStatus.findIndex(d => d.id === v.id);
+        let sum = props.characterSkillsTableStatus[idx].init_point 
+                    + props.characterSkillsTableStatus[idx].job_point 
+                    + props.characterSkillsTableStatus[idx].concern_point 
+                    + props.characterSkillsTableStatus[idx].grow 
+                    + props.characterSkillsTableStatus[idx].other
+                    - props.characterSkillsTableStatus[idx][v.field] + v.value;
         newValue[idx][v.field] = v.value;
         newValue[idx].summary = sum;
         newValue[idx].init_flag = false;
-        setStatus(newValue);
+        props.setCharacterSkillsTableStatus(newValue);
         // テーブルの値を親コンポーネントに返す関数
         setTableValue(newValue)
     }
@@ -34,7 +37,7 @@ export default function BasicSkillsEditableTable(props) {
         <div style={{ width: '100%' }}>
             <DataGrid
                 autoHeight
-                rows={status}
+                rows={props.characterSkillsTableStatus}
                 columns={columns}
                 disableColumnMenu={true}
                 hideFooter
@@ -56,5 +59,3 @@ const columns = [
     { field: 'other', headerName: 'その他', type: 'number', flex: 2, editable: true, sortable: false, headerAlign: 'center' },
     { field: 'summary', headerName: '合計', type: 'number', flex: 2, editable: false, sortable: false, headerAlign: 'center' }
 ];
-
-const rows = fields.BASIC_SKILLS_FIELDS;
