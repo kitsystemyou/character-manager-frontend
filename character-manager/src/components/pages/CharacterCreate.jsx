@@ -15,6 +15,7 @@ import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button, Typography } from "@mui/material";
 import ScrollToTop from "../modules/ScrollToTop";
 import { useNavigate } from "react-router-dom";
+import * as fields from "../modules/ConstantTableFields";
 
 const Accordion = styled((props) => (
     <MuiAccordion  {...props} />
@@ -155,12 +156,13 @@ const CharacterCreate = () => {
     const [basicCharaInfo, setbasicCharaInfo]=useState(basicCharaInfoInit);
     const [additionalInfo, setAdditionalInfo]=useState(additionalInfoInit);
     const [characterStatus, setCharacterStatus]=useState(characterStatusInit);
-    const [characterSkills, setCharacterSkills]=useState(characterSkillsInit);
     const [characterBasicSkills, setCharacterBasicSkills]=useState(characterBasicSkillsInit);
     const [characterBattleSkills, setCharacterBattleSkills]=useState(characterBattleSkillsInit);
     const [characterBelongings, setCharacterBelongings]=useState(characterBelongingsInit);
     const [characterMemo, setCharacterMemo]=useState(characterMemoInit);
     const [characterOthers, setCharacterOthers]=useState(characterOthersInit);
+    
+    const [characterSkillsTableStatus, setCharacterSkillsTableStatus]=useState(fields.BASIC_SKILLS_FIELDS);
 
     const accordionInfo = [
         {
@@ -179,7 +181,9 @@ const CharacterCreate = () => {
             Name: "能力値",
             Contents: <CharacterStatus 
                 characterStatus = {characterStatus}
-                setCharacterStatus = {setCharacterStatus}/>
+                setCharacterStatus = {setCharacterStatus}
+                characterSkillsTableStatus = {characterSkillsTableStatus}
+                setCharacterSkillsTableStatus = {setCharacterSkillsTableStatus}/>
         },
         {
             Name: "技能値",
@@ -187,7 +191,9 @@ const CharacterCreate = () => {
                 characterBasicSkills = {characterBasicSkills}
                 setCharacterBasicSkills = {setCharacterBasicSkills}
                 characterBattleSkills = {characterBattleSkills}
-                setCharacterBattleSkills = {setCharacterBattleSkills}/>
+                setCharacterBattleSkills = {setCharacterBattleSkills}
+                characterSkillsTableStatus = {characterSkillsTableStatus}
+                setCharacterSkillsTableStatus = {setCharacterSkillsTableStatus}/>
         },
         {
             Name: "所持品",

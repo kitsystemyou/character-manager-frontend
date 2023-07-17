@@ -2,6 +2,7 @@ export const STATUS_FIELDS = [
     {
       id: 1,
       name: "能力値",
+      SAN: 0,
       STR: 0,
       CON: 0,
       POW: 0,
@@ -11,11 +12,15 @@ export const STATUS_FIELDS = [
       INT: 0,
       EDU: 0,
       HP: 0,
-      MP: 0
+      MP: 0,
+      IDEA: 0,
+      LUCK: 0,
+      KNOWLEDGE: 0,
     },
     {
       id: 2,
       name: "増加分",
+      SAN: 0,
       STR: 0,
       CON: 0,
       POW: 0,
@@ -25,11 +30,15 @@ export const STATUS_FIELDS = [
       INT: 0,
       EDU: 0,
       HP: 0,
-      MP: 0
+      MP: 0,
+      IDEA: 0,
+      LUCK: 0,
+      KNOWLEDGE: 0,
     },
     {
       id: 3,
       name: "一時的",
+      SAN: 0,
       STR: 0,
       CON: 0,
       POW: 0,
@@ -39,11 +48,15 @@ export const STATUS_FIELDS = [
       INT: 0,
       EDU: 0,
       HP: 0,
-      MP: 0
+      MP: 0,
+      IDEA: 0,
+      LUCK: 0,
+      KNOWLEDGE: 0,
     },
     {
       id: 4,
       name: "現在値",
+      SAN: 0,
       STR: 0,
       CON: 0,
       POW: 0,
@@ -53,7 +66,10 @@ export const STATUS_FIELDS = [
       INT: 0,
       EDU: 0,
       HP: 0,
-      MP: 0
+      MP: 0,
+      IDEA: 0,
+      LUCK: 0,
+      KNOWLEDGE: 0,
     },
   ];
 
