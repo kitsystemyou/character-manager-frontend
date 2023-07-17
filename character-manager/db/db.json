@@ -79,6 +79,15 @@
             ]
           }
         ],
+    "icon": [
+        {
+            "id": 0,
+            "name": "",
+            "type": "image/png",
+            "icon_url": "/NoImage.png",
+            "msg": ""
+        }
+    ],
     "test": [
         {
             "id": 0,

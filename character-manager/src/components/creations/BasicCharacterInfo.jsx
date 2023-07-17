@@ -1,9 +1,11 @@
-import React, { useEffect }  from "react";
+import React, { useEffect, useState }  from "react";
 import Grid from "@mui/material/Grid";
 import { styled } from '@mui/material/styles'
 import FormControl from '@mui/material/FormControl';
-import { Button } from "@mui/material";
+import Button from "@mui/material/Button";
 import TextField from '@mui/material/TextField';
+import Typography from '@mui/material/Typography';
+import characterAPI from "../modules/api/character"
 
 const Icon = styled('img')({
   margin: 'auto',
@@ -22,13 +24,45 @@ const ColorButton = styled(Button)(({ theme }) => ({
 }));
 
 export default function BasicCharacterInfo(props){
+  const [file, setFile] = useState({name:"",type:"image/png",icon_url:"/NoImage.png",msg:""});
   useEffect(() => props.setbasicCharaInfo(props.basicCharaInfo),[props]);
+
+  const handleIconUpload = (e) => {
+    console.log(e.target.files)
+    if(!e.target.files){
+      return;
+    }
+    const icon = e.target.files[0];
+    if(!(icon.type === "image/png" ||icon.type === "image/jpg"||icon.type === "image/jpeg" || icon.type === "image/svg"|| icon.type === "image/gif")){
+      icon.msg = "アイコンには、png,jpg,jpeg,svg,gifファイルを使用してください"
+      setFile(icon)
+      return
+    }
+    if(icon.size > 5242880){
+      icon.msg = "ファイルサイズは、5MB以下にしてください"
+      setFile(icon)
+      return
+    }
+    
+    characterAPI.postIcon(icon).then( iconRes => {
+      console.log("iconRes", iconRes);
+      icon.icon_url = "https://storage.googleapis.com/character-manager/20140308124253616.jpg"
+      icon.msg = icon.name
+    })  
+    
+    
+    setFile(icon)
+  }
 
   return(
     <Grid container spacing={2}>
       <Grid item >
-        <Icon sx={{width:256, height: 256}} alt="complex" src="/NoImage.png" />
-        <ColorButton variant="contained" sx={{mt:3}}> アイコンを選択 </ColorButton>
+        <Icon sx={{width:256, height: 256}} alt="complex" src={file.icon_url} />
+        <Typography variant="caption" component="div">{file.msg}</Typography>
+        <ColorButton component="label" variant="contained" sx={{mt:3}}> 
+          アイコンを選択
+          <input accept=".png, .jpg, .jpeg, .svg, .gif" type="file" style={{display:"none"}} onChange={handleIconUpload}/>
+        </ColorButton>
       </Grid>
       <Grid item sm container>
         <Grid item xs container direction="column" sx={{mr:2}}>

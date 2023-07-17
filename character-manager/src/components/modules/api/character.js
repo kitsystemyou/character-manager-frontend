@@ -16,6 +16,10 @@ const characterAPI = {
         const result = await axios.post(ENDPOINT + 'character_all_info/', character);
         return result.data
     },
+    async postIcon(icon) {
+        const result = await axios.post(ENDPOINT + 'icon/', icon);
+        return result.data
+    },
     async delete(todo) {
         const result = await axios.delete(ENDPOINT + '/' + todo.id);
         return result.data
