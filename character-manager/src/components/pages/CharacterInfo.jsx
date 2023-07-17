@@ -56,14 +56,14 @@ const CharacterInfo = () => {
             "max_job_point": 200,
             "max_concern_point": 200
         },
-        "coc_skills": {
+        "coc_skills": [{
             "skill_name":"こぶし",
             "job_point":"20",
             "concern_point":"10",
             "grow":"",
             "other":"",
             "skill_type":"attack"
-        }
+        }]
       }
     const [oneCharacter, setCharacter] = useState(baseCharacter); // character にする
     // キャラクターID をpathパラメータから取得
