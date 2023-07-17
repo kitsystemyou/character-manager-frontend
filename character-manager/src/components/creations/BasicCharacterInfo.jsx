@@ -53,13 +53,13 @@ export default function BasicCharacterInfo(props){
           <Grid item xs container>
             <Grid item xs={6} sx={{pr:1}}>
               <FormControl id="jobInput" fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined" 
-            onChange={(event)=>props.setbasicCharaInfo({...props.basicCharaInfo, job:event.target.value})}>
+            onChange={(event)=>props.setbasicCharaInfo({...props.basicCharaInfo, coc_meta_info:{...props.basicCharaInfo.coc_meta_info,job:event.target.value}})}>
               <TextField label="職業" variant="outlined"/>
               </FormControl>  
             </Grid> 
             <Grid item xs={6} sx={{pl:1}}>        
               <FormControl id="homePlaceInput" fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined" 
-            onChange={(event)=>props.setbasicCharaInfo({...props.basicCharaInfo, home_place:event.target.value})}>
+            onChange={(event)=>props.setbasicCharaInfo({...props.basicCharaInfo, coc_meta_info:{...props.basicCharaInfo.coc_meta_info,home_place:event.target.value}})}>
               <TextField label="出身" variant="outlined"/>
               </FormControl>
             </Grid>
@@ -67,13 +67,13 @@ export default function BasicCharacterInfo(props){
           <Grid item xs container>
             <Grid item xs={6} sx={{pr:1}}>
               <FormControl id="sexInput" sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined" 
-            onChange={(event)=>props.setbasicCharaInfo({...props.basicCharaInfo, sex:event.target.value})}>
+            onChange={(event)=>props.setbasicCharaInfo({...props.basicCharaInfo, coc_meta_info:{...props.basicCharaInfo.coc_meta_info,sex:event.target.value}})}>
               <TextField label="性別" variant="outlined"/>
               </FormControl>  
             </Grid> 
             <Grid item xs={6} sx={{pl:1}}>         
               <FormControl id="ageInput" sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined" 
-            onChange={(event)=>props.setbasicCharaInfo({...props.basicCharaInfo, age:event.target.value})}>
+            onChange={(event)=>props.setbasicCharaInfo({...props.basicCharaInfo, coc_meta_info:{...props.basicCharaInfo.coc_meta_info,age:event.target.value}})}>
               <TextField label="年齢" variant="outlined"/>
               </FormControl>
             </Grid>

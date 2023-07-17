@@ -12,8 +12,8 @@ const characterAPI = {
         const result = await axios.get(ENDPOINT + '/' + id);
         return result.data;
     },
-    async post(todo) {
-        const result = await axios.post(ENDPOINT, todo);
+    async post(character) {
+        const result = await axios.post(ENDPOINT + 'character_all_info/', character);
         return result.data
     },
     async delete(todo) {

@@ -16,6 +16,7 @@ import { Button, Typography } from "@mui/material";
 import ScrollToTop from "../modules/ScrollToTop";
 import { useNavigate } from "react-router-dom";
 import * as fields from "../modules/ConstantTableFields";
+import characterAPI from "../modules/api/character"
 
 const Accordion = styled((props) => (
     <MuiAccordion  {...props} />
@@ -43,10 +44,13 @@ const basicCharaInfoInit = {
     character_name: "",
     player_name: "",
     tags: "",
-    job: "",
-    home_place: "",
-    sex: "",
-    age: ""    
+    prof_img_path: "",
+    coc_meta_info:{
+        job: "",
+        home_place: "",
+        sex: "",
+        age: ""
+    }
 }
 
 const additionalInfoInit = {
@@ -164,6 +168,34 @@ const CharacterCreate = () => {
     
     const [characterSkillsTableStatus, setCharacterSkillsTableStatus]=useState(fields.BASIC_SKILLS_FIELDS);
 
+    const getUuid = () => {
+        //ログイン時にuuidを取得するはずなので、一旦これで。ログイン機能周りができたら修正。
+        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
+        // .replace(/[xy]/g, (a) => {
+        //     let r = (new Date().getTime() + Math.random() * 16)%16 | 0, v = a == 'x' ? r : (r & 0x3 | 0x8);
+        //     return v.toString(16);
+        //  });
+    }
+      
+    const saveCharacter = () =>{
+        let character_data = {};
+        character_data.user_id = getUuid();
+        character_data.game_system = "coc";
+        console.log(basicCharaInfo)
+        Object.assign(character_data,basicCharaInfo)
+        Object.assign(character_data.coc_meta_info, additionalInfo)
+        character_data.coc_status_parameters = characterStatus
+        character_data.coc_skills = characterBasicSkills.coc_skills.concat(characterBattleSkills.coc_skills)
+        console.log(character_data);
+        //可能であればいらない情報を消す
+        //character_data = deleteParams(character_data)
+        characterAPI.post(character_data).then( characterRes => {
+                console.log("characterRes", characterRes);
+                navigate(`/info/${characterRes.game_system}/${characterRes.id}`)
+            }
+        )        
+    }
+
     const accordionInfo = [
         {
             Name: "基本情報",
@@ -218,7 +250,7 @@ const CharacterCreate = () => {
         <>
             <Header />
             <div align='right'>
-                <Button variant="contained" onClick={() => navigate('/info')}sx={{ mt: 2}}>保存</Button>
+                <Button variant="contained" onClick={saveCharacter}sx={{ mt: 2}}>保存</Button>
             </div>
                 {
                 /* キャラクター一覧 */
