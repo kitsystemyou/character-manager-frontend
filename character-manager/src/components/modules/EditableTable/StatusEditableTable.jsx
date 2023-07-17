@@ -27,7 +27,7 @@ export default function CharacterStatus(props) {
         }
         if(v.field === "DEX"){
             let newSkillsValue = _.cloneDeep(props.characterSkillsTableStatus);
-            newSkillsValue[6].init_point = sum*2;
+            newSkillsValue[6].init_point = sum*2;   //定義の6番目の要素に「回避」があるので、その初期値を変更
             props.setCharacterSkillsTableStatus(newSkillsValue);
         }
         if(v.field === "INT"){
@@ -36,7 +36,7 @@ export default function CharacterStatus(props) {
         if(v.field === "EDU"){
             newValue[0]["KNOWLEDGE"] = sum*5;
             let newSkillsValue = _.cloneDeep(props.characterSkillsTableStatus);
-            newSkillsValue[47].init_point = sum*5;
+            newSkillsValue[47].init_point = sum*5;  //定義の47番目の要素に「母国語」があるので、その初期値を変更
             props.setCharacterSkillsTableStatus(newSkillsValue);
         }
         if(v.field === "CON" || v.field === "SIZ"){
