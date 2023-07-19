@@ -17,7 +17,8 @@ const characterAPI = {
         return result.data
     },
     async postIcon(icon) {
-        const result = await axios.post(ENDPOINT + 'icon/', icon);
+        const result = await axios.post(ENDPOINT + 'icon/', icon, {headers: {'Content-Type': 'multipart/form-data'},
+          });
         return result.data
     },
     async delete(todo) {

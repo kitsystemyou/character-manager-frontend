@@ -44,14 +44,15 @@ export default function BasicCharacterInfo(props){
       return
     }
     
-    characterAPI.postIcon(icon).then( iconRes => {
+    const params = new FormData();
+    params.append("image", icon);
+    characterAPI.postIcon(params).then( iconRes => {
       console.log("iconRes", iconRes);
+      // アイコンのレスポンスからファイル名と画像アップロード先のURLを取得する
       icon.icon_url = "https://storage.googleapis.com/character-manager/20140308124253616.jpg"
       icon.msg = icon.name
+      setFile(icon)
     })  
-    
-    
-    setFile(icon)
   }
 
   return(
