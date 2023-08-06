@@ -73,8 +73,8 @@ const CharacterInfo = () => {
     useEffect( () => {
     console.log("useEffect");
     characterAPI.getAll(oneCharacter.id).then( characterRes => { // API コール: character 取得
-        console.log("characterRes", characterRes)
-        setCharacter(characterRes) // 取得したデータで更新
+        console.log("characterRes", characterRes.result)
+        setCharacter(characterRes.result) // 取得したデータで更新
       });
     console.log("end of useEffect")
     }, [oneCharacter.id]);

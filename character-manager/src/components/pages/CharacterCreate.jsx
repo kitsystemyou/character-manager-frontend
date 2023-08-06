@@ -54,7 +54,7 @@ const basicCharaInfoInit = {
 }
 
 const additionalInfoInit = {
-    edu_backgroud: "",
+    edu_background: "",
     mental_disorder: "",
     height: "",
     weight: "",
@@ -178,6 +178,7 @@ const CharacterCreate = () => {
     }
       
     const saveCharacter = () =>{
+        var character = {}
         let character_data = {};
         character_data.user_id = getUuid();
         character_data.game_system = "coc";
@@ -189,9 +190,10 @@ const CharacterCreate = () => {
         console.log(character_data);
         //可能であればいらない情報を消す
         //character_data = deleteParams(character_data)
-        characterAPI.post(character_data).then( characterRes => {
+        character["character"] = character_data
+        characterAPI.post(character).then( characterRes => {
                 console.log("characterRes", characterRes);
-                navigate(`/info/${characterRes.game_system}/${characterRes.id}`)
+                navigate(`/info/${characterRes.result.game_system}/${characterRes.result.id}`)
             }
         )        
     }
