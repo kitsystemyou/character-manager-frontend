@@ -13,7 +13,7 @@ const characterAPI = {
         return result.data;
     },
     async post(character) {
-        const result = await axios.post(ENDPOINT + 'character_all_info/', character);
+        const result = await axios.post(ENDPOINT + 'character_all_info', character);
         return result.data
     },
     async delete(todo) {
