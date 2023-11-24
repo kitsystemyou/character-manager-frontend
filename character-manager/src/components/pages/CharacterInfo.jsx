@@ -71,12 +71,14 @@ const CharacterInfo = () => {
     oneCharacter.id = character_id
     console.log("pathParams: ", game_system, character_id)
     useEffect( () => {
-    console.log("useEffect");
     characterAPI.getAll(oneCharacter.id).then( characterRes => { // API コール: character 取得
+        for(let i=0; i<characterRes.result.coc_skills.length; ++i){
+            const obj = characterRes.result.coc_skills[i]
+            characterRes.result.coc_skills[i].summary = obj.concern_point+obj.grow+obj.job_point+obj.other;
+        }
         console.log("characterRes", characterRes.result)
         setCharacter(characterRes.result) // 取得したデータで更新
       });
-    console.log("end of useEffect")
     }, [oneCharacter.id]);
 
     return (

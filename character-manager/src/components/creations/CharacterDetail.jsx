@@ -74,15 +74,15 @@ export default function CharacterDetail(props){
         },        
 
     ];
-    const rows = [
-        { id: 1,skillName:"目星",sum:80},
-        { id: 2,skillName:"聞き耳",sum:50},
-        { id: 3,skillName:"コンピュータ",sum:60},
-        { id: 4,skillName:"拳銃",sum:20},
-    ];
+    const rows = props.character.coc_skills.map((obj,index) => {
+        const {skill_name, summary} = obj;
+        const res = Object.assign({id:index+1},{skill_name},{summary});
+        console.log(res)
+        return res
+    });
     const columns = [
-        { field: 'skillName', headerName: '技能名', flex: 1, editable: false, sortable: true, headerAlign: 'center'},
-        { field: 'sum', headerName: '技能値', flex: 1, editable: false, sortable: true, headerAlign: 'center', align: 'center' },
+        { field: 'skill_name', headerName: '技能名', flex: 1, editable: false, sortable: true, headerAlign: 'center'},
+        { field: 'summary', headerName: '技能値', flex: 1, editable: false, sortable: true, headerAlign: 'center', align: 'center' },
     ];
     return(
         <Grid container>
