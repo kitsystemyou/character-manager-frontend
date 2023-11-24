@@ -54,7 +54,7 @@ export default function CharacterDetail(props){
     const accordionInfo = [
         {
             Name: "追加情報",
-            Contents: <AdditionalInfoReadOnly />
+            Contents: <AdditionalInfoReadOnly additionalInfo = {props.character.coc_meta_info} />
         },
         {
             Name: "武器・所持品",
@@ -141,7 +141,7 @@ export default function CharacterDetail(props){
                     <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="SIZ" value={props.character.coc_status_parameters.size} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
-                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="INT" value={props.character.coc_status_parameters.int} InputProps={{readOnly: true}}/>
+                    <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="INT" value={props.character.coc_status_parameters.inte} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={1} sx={{ mr: 1 }}>
                     <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="EDU" value={props.character.coc_status_parameters.edu} InputProps={{readOnly: true}}/>

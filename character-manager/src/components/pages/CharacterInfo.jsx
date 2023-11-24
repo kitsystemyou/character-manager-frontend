@@ -43,7 +43,7 @@ const CharacterInfo = () => {
             "dex": 13,
             "app": 13,
             "size": 13,
-            "int": 13,
+            "inte": 13,
             "edu": 13,
             "hp": 13,
             "mp": 13,
