@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const ENDPOINT = "http://localhost:3001/"
+const ENDPOINT = "http://localhost:5001/"
 
 
 const characterAPI = {

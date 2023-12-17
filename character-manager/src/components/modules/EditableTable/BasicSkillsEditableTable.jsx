@@ -1,25 +1,23 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import { DataGrid } from '@mui/x-data-grid';
 import _ from 'lodash';
 
 export default function BasicSkillsEditableTable(props) {
     useEffect(() => props.setCharacterSkills(props.characterSkills), [props]);
     useEffect(() => props.setCharacterSkillsTableStatus(props.characterSkillsTableStatus), [props]);
+    const [status, setStatus] = useState(props.characterSkillsTableStatus)
 
     const changeCell = (v) => {
-        let newValue = _.cloneDeep(props.characterSkillsTableStatus);
-        let idx = props.characterSkillsTableStatus.findIndex(d => d.id === v.id);
-        let sum = props.characterSkillsTableStatus[idx].init_point 
-                    + props.characterSkillsTableStatus[idx].job_point 
-                    + props.characterSkillsTableStatus[idx].concern_point 
-                    + props.characterSkillsTableStatus[idx].grow 
-                    + props.characterSkillsTableStatus[idx].other
-                    - props.characterSkillsTableStatus[idx][v.field] + v.value;
+        let newValue = _.cloneDeep(status);
+        let idx = status.findIndex(d => d.id === v.id);
+        let sum = status[idx].init_point + status[idx].job_point + status[idx].concern_point + status[idx].grow + status[idx].other
+                    - status[idx][v.field] + v.value;
         newValue[idx][v.field] = v.value;
         newValue[idx].summary = sum;
         newValue[idx].init_flag = false;
         newValue[idx].skill_type = "basic";
         props.setCharacterSkillsTableStatus(newValue);
+        setStatus(newValue);
         // テーブルの値を親コンポーネントに返す関数
         setTableValue(newValue)
     }
@@ -32,6 +30,7 @@ export default function BasicSkillsEditableTable(props) {
             }
         }
         props.setCharacterSkills({...props.characterSkills, coc_skills:tableValue});
+        console.log(props.characterSkills)
         console.log(tableValue);
     }
     return (
