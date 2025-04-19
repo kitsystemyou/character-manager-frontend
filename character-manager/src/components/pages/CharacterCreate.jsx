@@ -13,10 +13,10 @@ import CharacterMemo from "../creations/CharacterMemo";
 import CharacterOthers from "../creations/CharacterOthers";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { Button, Typography } from "@mui/material";
-import ScrollToTop from "../modules/ScrollToTop";
 import { useNavigate } from "react-router-dom";
 import * as fields from "../modules/ConstantTableFields";
 import characterAPI from "../modules/api/character"
+import FloatingButton from "../modules/FloatingButton"
 
 const Accordion = styled((props) => (
     <MuiAccordion  {...props} />
@@ -26,18 +26,29 @@ const Accordion = styled((props) => (
         paddingRight: theme.spacing(7),
         paddingLeft: theme.spacing(7),
     },
+    marginTop: theme.spacing(2),
+    marginLeft: theme.spacing(4),
+    marginRight: theme.spacing(4),
     '&:not(:last-child)': {
         borderBottom: 0,
+        marginLeft: theme.spacing(4),
+        marginRight: theme.spacing(4),
     },
     '&:before': {
         display: 'none',
+    },
+    '&.MuiAccordion-root.Mui-expanded': { // 開いているときの枠線を削除
+        border: '3px solid #8c7851',
+    },
+    '&.MuiAccordion-root:not(.Mui-expanded)': { 
+        border: '3px solid #8c7851', 
     },
 }));
 
 const AccordionSummary = styled((props) => (
     <MuiAccordionSummary {...props} />
 ))(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#8c7851',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F9F4EF',
 }));
 
 const basicCharaInfoInit = {
@@ -149,10 +160,11 @@ const characterOthersInit = {
 }
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F9F4EF',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#FFF',
     padding: theme.spacing(2),
-    borderTop: '1px solid',
-    borderBottom: '1px solid',
+    borderTop: '3px solid',
+    borderBottom: '3px solid',
+    borderColor: '#8c7851'
 }));
 
 const CharacterCreate = () => {
@@ -252,15 +264,15 @@ const CharacterCreate = () => {
         <>
             <Header />
             <div align='right'>
-                <Button variant="contained" onClick={saveCharacter}sx={{ mt: 2}}>保存</Button>
+                <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} onClick={saveCharacter}sx={{ mt: 2,mb: 2, mr: 4}}>保存</Button>
             </div>
                 {
                 /* キャラクター一覧 */
                     accordionInfo.map(ainfo => {
                         return (
-                            <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }} key={ainfo.Name}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
-                                <Typography variant="h5" style={{ color: 'white' }}>{ainfo.Name}</Typography>
+                            <Accordion sx={{ boxShadow: 3}} key={ainfo.Name}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "#020826" }} />}>
+                                <Typography variant="h5" style={{ color: '#020826' }}>{ainfo.Name}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 {ainfo.Contents}
@@ -271,7 +283,7 @@ const CharacterCreate = () => {
                 }
                 
             <div>
-                <ScrollToTop />
+                <FloatingButton />
             </div>
         </>
     );
