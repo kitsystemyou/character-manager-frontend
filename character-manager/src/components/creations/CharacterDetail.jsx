@@ -90,8 +90,8 @@ export default function CharacterDetail(props){
         sum: skill.concern_point + skill.grow + skill.job_point + skill.other
     }));
     const columns = [
-        { field: 'skill_name', headerName: '技能名', flex: 1, editable: false, sortable: true, headerAlign: 'center'},
-        { field: 'summary', headerName: '技能値', flex: 1, editable: false, sortable: true, headerAlign: 'center', align: 'center' },
+        { field: 'skillName', headerName: '技能名', flex: 1, editable: false, sortable: true, headerAlign: 'center'},
+        { field: 'sum', headerName: '技能値', flex: 1, editable: false, sortable: true, headerAlign: 'center', align: 'center' },
     ];
     return(
         <Grid container>
