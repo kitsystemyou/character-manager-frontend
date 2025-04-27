@@ -15,7 +15,7 @@ export default function BasicSkillsEditableTable(props) {
         newValue[idx][v.field] = v.value;
         newValue[idx].summary = sum;
         newValue[idx].init_flag = false;
-        newValue[idx].skill_type = "basic";
+        newValue[idx].skill_type = 1; //basic:1, battle:2, custom:3
         props.setCharacterSkillsTableStatus(newValue);
         setStatus(newValue);
         // テーブルの値を親コンポーネントに返す関数

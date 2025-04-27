@@ -1,5 +1,5 @@
 {
-    "Readme":"多分、これいらないけど、何かに使えるかもしれないので、残してる",
+    "Readme":"type: basic→1, battle→2, custom→3",
     "basic_info":
     {
         "character_name" : "",
@@ -23,7 +23,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -35,7 +35,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -47,7 +47,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -59,7 +59,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -71,7 +71,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -83,7 +83,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -95,7 +95,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -107,7 +107,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -119,7 +119,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -131,7 +131,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -143,7 +143,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -155,7 +155,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -167,7 +167,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -179,7 +179,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -191,7 +191,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -203,7 +203,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -215,7 +215,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -227,7 +227,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -239,7 +239,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -251,7 +251,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -263,7 +263,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -275,7 +275,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -287,7 +287,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -299,7 +299,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -311,7 +311,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -323,7 +323,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -335,7 +335,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -347,7 +347,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -359,7 +359,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -371,7 +371,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -383,7 +383,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -395,7 +395,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -407,7 +407,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -419,7 +419,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -431,7 +431,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -443,7 +443,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -455,7 +455,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -467,7 +467,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -479,7 +479,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -491,7 +491,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -503,7 +503,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -515,7 +515,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -527,7 +527,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -539,7 +539,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -551,7 +551,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -563,7 +563,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -575,7 +575,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -587,7 +587,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -599,7 +599,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -611,7 +611,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -623,7 +623,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -635,7 +635,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Basic",
+            "type":1,
             "init_flag":1
         },
         {
@@ -647,7 +647,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Battle",
+            "type":2,
             "init_flag":1
         },
         {
@@ -659,7 +659,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Battle",
+            "type":2,
             "init_flag":1
         },
         {
@@ -671,7 +671,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Battle",
+            "type":2,
             "init_flag":1
         },
         {
@@ -683,7 +683,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Battle",
+            "type":2,
             "init_flag":1
         },
         {
@@ -695,7 +695,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Battle",
+            "type":2,
             "init_flag":1
         },
         {
@@ -707,7 +707,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Battle",
+            "type":2,
             "init_flag":1
         },
         {
@@ -719,7 +719,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Battle",
+            "type":2,
             "init_flag":1
         },
         {
@@ -731,7 +731,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Battle",
+            "type":2,
             "init_flag":1
         },
         {
@@ -743,7 +743,7 @@
             "concern_point":0,
             "grow":0,
             "other":0,
-            "type":"Battle",
+            "type":2,
             "init_flag":1
         }
     ],

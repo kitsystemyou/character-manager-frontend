@@ -22,6 +22,7 @@ export default function CharacterStatus(props) {
         
         if(v.field === "POW"){
             newValue[0]["SAN"] = sum*5;
+            newValue[3]["SAN"] = sum*5;
             newValue[0]["LUCK"] = sum*5;
             newValue[0]["MP"] = sum;
         }
@@ -52,7 +53,7 @@ export default function CharacterStatus(props) {
                 
         field === "STR" ? props.setCharacterStatus({...props.characterStatus, str:sum, damage_bonus: damage_bonus}) 
         : field === "CON" ? props.setCharacterStatus({...props.characterStatus, con:sum, hp:hp})
-        : field === "POW" ? props.setCharacterStatus({...props.characterStatus, pow:sum, init_san:sum*5,luck:sum*5,mp:sum})
+        : field === "POW" ? props.setCharacterStatus({...props.characterStatus, pow:sum, init_san:sum*5,luck:sum*5,mp:sum,current_san:sum*5})
         : field === "DEX" ? props.setCharacterStatus({...props.characterStatus, dex:sum})
         : field === "APP" ? props.setCharacterStatus({...props.characterStatus, app:sum})
         : field === "SIZ" ? props.setCharacterStatus({...props.characterStatus, size:sum, damage_bonus: damage_bonus, hp:hp})
