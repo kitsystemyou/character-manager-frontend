@@ -13,56 +13,57 @@ const CharacterInfo = () => {
     const baseCharacter = 
     {
         "id": 1,
-        "user_id": "string",
-        "character_name": "kale",
-        "player_name": "yoh",
-        "game_system": "coc",
-        "prof_img_path": "/path/to/image",
-        "tags": "coc,hogehoge",
-        "create_time": "2019-08-24",
-        "update_time": "2019-08-24",
-        "delete_time": "2019-08-24",
+        "user_id": "error",
+        "character_name": "エラー",
+        "player_name": "エラー",
+        "game_system": "エラー",
+        "prof_img_path": "",
+        "tags": "エラー",
+        "create_time": "1970-01-01",
+        "update_time": "1970-01-01",
+        "delete_time": "1970-01-01",
         "coc_meta_info": {
-            "job": "student",
-            "sex": "male",
-            "age": "25",
-            "height": "170",
-            "weight": "60",
-            "hair_color": "black",
-            "eye_color": "black",
-            "skin_color": "white",
-            "home_place": "tokyo",
-            "mental_disorder": "",
-            "edu_background": "bachelar",
-            "memo": "memo"
+            "job": "エラー",
+            "sex": "エラー",
+            "age": 0,
+            "height": 0,
+            "weight": 0,
+            "hair_color": "エラー",
+            "eye_color": "エラー",
+            "skin_color": "エラー",
+            "home_place": "エラー",
+            "mental_disorder": "エラー",
+            "edu_background": "エラー",
+            "memo": "エラー"
         },
         "coc_status_parameters":{
-            "str": 13,
-            "con": 13,
-            "pow": 13,
-            "dex": 13,
-            "app": 13,
-            "size": 13,
-            "inte": 13,
-            "edu": 13,
-            "hp": 13,
-            "mp": 13,
-            "init_san": 50,
-            "current_san": 50,
-            "idea": 13,
-            "knowledge": 13,
-            "damage_bonus": 13,
-            "luck": 13,
-            "max_job_point": 200,
-            "max_concern_point": 200
+            "str": -1,
+            "con": -1,
+            "pow": -1,
+            "dex": -1,
+            "app": -1,
+            "size": -1,
+            "inte": -1,
+            "edu": -1,
+            "hp": -1,
+            "mp": -1,
+            "init_san": -1,
+            "current_san": -1,
+            "idea": -1,
+            "knowledge": -1,
+            "damage_bonus": -1,
+            "luck": -1,
+            "max_job_point": -1,
+            "max_concern_point": -1
         },
         "coc_skills": [{
-            "skill_name":"こぶし",
-            "job_point":"20",
-            "concern_point":"10",
-            "grow":"",
-            "other":"",
-            "skill_type":"attack"
+            "skill_id":-1,
+            "skill_name":"エラー",
+            "job_point":-1,
+            "concern_point":0,
+            "grow":0,
+            "other":0,
+            "skill_type":0
         }]
       }
     const [oneCharacter, setCharacter] = useState(baseCharacter); // character にする
@@ -84,15 +85,15 @@ const CharacterInfo = () => {
     return (
         <div>
             <Header />
-            <Card sx={{ mt:2, border:2, borderColor: '#8c7851' }}>
-                <Box sx={{backgroundColor: '#8c7851'}}>
+            <Card sx={{ m:2, border:3, borderColor: '#8c7851' }}>
+                <Box sx={{borderBottom:3, borderBottomColor:'#8c7851', backgroundColor: '#F9F4EF'}}>
                     <Grid container>
                         <Grid item sx={{m:1}}>
-                            <Typography variant="h4" color='white' align='left'>キャラクター詳細</Typography>
+                            <Typography sx={{ml:1}} variant="h4" color='#020826' align='left'>キャラクター詳細</Typography>
                         </Grid>
                         <div style={{ flexGrow: 1 }}></div>
-                        <Button variant="contained" sx={{m:1}}>編集</Button>
-                        <Button variant="contained" sx={{m:1}}>出力</Button>
+                        <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} sx={{m:1}}>編集</Button>
+                        <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} sx={{m:1}}>出力</Button>
                     </Grid>
                 </Box>
                 {/* APIから取得したキャラクターデータを CharacterDetail に渡す */}

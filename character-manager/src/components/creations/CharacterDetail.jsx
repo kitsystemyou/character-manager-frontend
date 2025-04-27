@@ -28,25 +28,35 @@ const Accordion = styled((props) => (
         paddingRight: theme.spacing(7),
         paddingLeft: theme.spacing(7),
     },
+    marginRight: theme.spacing(1),
     '&:not(:last-child)': {
         borderBottom: 0,
+        marginLeft: theme.spacing(1),
+        marginRight: theme.spacing(1),
     },
     '&:before': {
         display: 'none',
+    },
+    '&.MuiAccordion-root.Mui-expanded': { // 開いているときの枠線を削除
+        border: '3px solid #8c7851',
+    },
+    '&.MuiAccordion-root:not(.Mui-expanded)': { 
+        border: '3px solid #8c7851', 
     },
 }));
 
 const AccordionSummary = styled((props) => (
     <MuiAccordionSummary {...props} />
 ))(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#8c7851',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F9F4EF',
 }));
 
 const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F9F4EF',
+    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#FFF',
     padding: theme.spacing(2),
-    borderTop: '1px solid',
-    borderBottom: '1px solid',
+    borderTop: '3px solid',
+    borderBottom: '3px solid',
+    borderColor: '#8c7851'
 }));
 
 
@@ -74,54 +84,53 @@ export default function CharacterDetail(props){
         },        
 
     ];
-    const rows = props.character.coc_skills.map((obj,index) => {
-        const {skill_name, summary} = obj;
-        const res = Object.assign({id:index+1},{skill_name},{summary});
-        console.log(res)
-        return res
-    });
+    const rows = props.character.coc_skills.map(skill => ({
+        id: skill.skill_id,
+        skillName: skill.skill_name,
+        sum: skill.concern_point + skill.grow + skill.job_point + skill.other
+    }));
     const columns = [
         { field: 'skill_name', headerName: '技能名', flex: 1, editable: false, sortable: true, headerAlign: 'center'},
         { field: 'summary', headerName: '技能値', flex: 1, editable: false, sortable: true, headerAlign: 'center', align: 'center' },
     ];
     return(
         <Grid container>
-            <Grid item xs={3} sx={{p:1,minWidth:160, minHeight: 160, maxWidth:480, maxHeight: 480}}>
-                <Icon alt="complex" src="/coharu.png" />
+            <Grid item xs={3} sx={{p:1,minWidth:160, minHeight: 160, maxWidth:280, maxHeight: 280}}>
+                <Icon alt="complex" src="/NoImage.png" sx={{ width: "100%", height: "100%", objectFit: "contain", maxWidth: 280, maxHeight: 280 }} />
             </Grid>
             <Grid item xs={9} container sx={{ p: 1 }}>
-                    <Grid item xs={12} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={12} sx={{mt:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="PC名前" value={props.character.character_name} InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={12} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={12} sx={{mt:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="PL名前" value={props.character.player_name} InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={4} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={4} sx={{mt:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="職業" value={props.character.coc_meta_info.job} InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={4} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={4} sx={{mt:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="性別" value={props.character.coc_meta_info.sex} InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={4} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={4} sx={{mt:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="年齢" value={props.character.coc_meta_info.age} InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={3} sx={{mt:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="SAN値" value={props.character.coc_status_parameters.init_san} InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={3} sx={{mt:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="HP" value={props.character.coc_status_parameters.hp} InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={3} sx={{mt:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="MP" value={props.character.coc_status_parameters.mp} InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={3} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={3} sx={{mt:1, pr:1}}>
                         <TextField fullWidth id="outlined-read-only-input" label="DB" value={props.character.coc_status_parameters.damage_bonus} InputProps={{readOnly: true}}/>
                     </Grid>
-                    <Grid item xs={12} sx={{mt:1, mb:1, pr:1}}>
+                    <Grid item xs={12} sx={{mt:1, pr:1}}>
                         <TextField fullWidth sx={{backgroundColor:'white' }}id="outlined-read-only-input" label="タグ名" value={props.character.tags} InputProps={{readOnly: true}}/>
                     </Grid>
                 </Grid>
-            <Grid item xs={12} container sx={{ m: 1 }}>
+            <Grid item xs={12} container sx={{justifyContent: 'center', alignItems: 'center' }}>
                 <Grid item xs={1} sx={{ mr: 1 }}>
                     <TextField fullWidth sx={{backgroundColor:'white'}}id="outlined-read-only-input" label="STR" value={props.character.coc_status_parameters.str} InputProps={{readOnly: true}}/>
                 </Grid>
@@ -160,7 +169,7 @@ export default function CharacterDetail(props){
             <hr />
             </Grid>
             <Grid item xs={12} container>
-                <Grid item xs={3} sx={{ pr: 1 }}>
+                <Grid item xs={3} sx={{ pl: 1, pr: 1 }}>
                     <DataGrid
                     autoHeight
                     rows={rows}
@@ -175,9 +184,9 @@ export default function CharacterDetail(props){
                 /* キャラクター一覧 */
                     accordionInfo.map(ainfo => {
                         return (
-                            <Accordion sx={{ boxShadow: 3, border: 1, borderColor: '#020826' }} key={ainfo.Name}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "white" }} />}>
-                                <Typography variant="h5" style={{ color: 'white' }}>{ainfo.Name}</Typography>
+                            <Accordion sx={{ boxShadow: 3}} key={ainfo.Name}>
+                            <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "#020826" }} />}>
+                                <Typography variant="h5" style={{ color: '#020826' }}>{ainfo.Name}</Typography>
                             </AccordionSummary>
                             <AccordionDetails>
                                 {ainfo.Contents}
