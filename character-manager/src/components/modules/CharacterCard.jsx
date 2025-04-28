@@ -1,111 +1,106 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Grid from "@mui/material/Grid";
 import Card from "@mui/material/Card";
 import CardMedia from "@mui/material/CardMedia"
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import { styled } from '@mui/material/styles'
 import Typography from '@mui/material/Typography';
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
+import characterAPI from "../modules/api/character";
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+import EditIcon from '@mui/icons-material/Edit';
+import DeleteIcon from '@mui/icons-material/Delete';
 
-
-const ColorButton = styled(Button)(({ theme }) => ({
-  color: theme.palette.getContrastText('#8c7851'),
-  backgroundColor: '#8c7851',
-  '&:hover': {
-    backgroundColor: '#716040',
-  }
-}));
+const TagButton = styled(Button)(({ theme }) => ({
+    padding: theme.spacing(0.5, 1),
+    fontSize: '0.75rem',
+    backgroundColor: '#fff',
+    color: '#333',
+    '&:hover': {
+      backgroundColor: '#ccc',
+    },
+  }));
 
 export default function CharacterCard(){
     const navigate = useNavigate();
-    const characterOverviewInfo = [
-        {
-            id: 1,
-            characterName: "山田花子",
-            gameSystem: "クトゥルフ神話TRPG",
-            tags:["2010対応", "ロスト", "2012対応", "テスト"],
-            createTime: "YYYY-MM-DD hh:mm:ss",
-            updateTime: "YYYY-MM-DD hh:mm:ss"
-        },
-        {
-            id: 2,
-            characterName: "山田花子",
-            gameSystem: "クトゥルフ神話TRPG",
-            tags:["2010対応", "ロスト", "2012対応", "テスト"],
-            createTime: "YYYY-MM-DD hh:mm:ss",
-            updateTime: "YYYY-MM-DD hh:mm:ss"
-        },
-        {
-            id: 3,
-            characterName: "山田花子",
-            gameSystem: "クトゥルフ神話TRPG",
-            tags:["2010対応", "ロスト", "2012対応", "テスト"],
-            createTime: "YYYY-MM-DD hh:mm:ss",
-            updateTime: "YYYY-MM-DD hh:mm:ss"
-        },
-        {
-            id: 4,
-            characterName: "山田花子",
-            gameSystem: "クトゥルフ神話TRPG",
-            tags:["2010対応", "ロスト", "2012対応", "テスト"],
-            createTime: "YYYY-MM-DD hh:mm:ss",
-            updateTime: "YYYY-MM-DD hh:mm:ss"
-        },
-        {
-            id: 5,
-            characterName: "山田花子",
-            gameSystem: "クトゥルフ神話TRPG",
-            tags:["2010対応", "ロスト", "2012対応", "テスト"],
-            createTime: "YYYY-MM-DD hh:mm:ss",
-            updateTime: "YYYY-MM-DD hh:mm:ss"
-        },
-        {
-            id: 6,
-            characterName: "山田花子",
-            gameSystem: "クトゥルフ神話TRPG",
-            tags:["2010対応", "ロスト", "2012対応", "テスト"],
-            createTime: "YYYY-MM-DD hh:mm:ss",
-            updateTime: "YYYY-MM-DD hh:mm:ss"
-        }
-    ]
+    const [characterOverviewInfo, setCharacterOverviewInfo] = useState([]);
 
+    // APIからデータを取得
+    useEffect(() => {
+        fetchCharacterList();
+      }, []);
+
+    const fetchCharacterList = async () => {
+    try {
+        const characterRes = await characterAPI.getCharacterList();
+        setCharacterOverviewInfo(characterRes.result);
+    } catch (error) {
+        console.error("キャラクターリスト取得エラー", error);
+    }
+    };
+
+    const handleDelete = async (id) => {
+    if (window.confirm('本当に削除しますか？')) {
+        try {
+        await characterAPI.delete(id);
+        // 削除後に一覧を再取得
+        fetchCharacterList();
+        } catch (error) {
+        console.error("削除エラー", error);
+        }
+    }
+    };
+  
     return(
         <>
         <Grid container spacing={1}>
         {characterOverviewInfo.map(coInfo => {
             return(            
                 <Grid item sm container key={coInfo.id}>
-                <Card sx={{width: 360 ,backgroundColor: '#F9F4EF', boxShadow: 3, border:2, borderColor:'#8c7851'}}>
-                    <CardMedia sx={{ height: 250 }} image="/coharu.png" title="山田　花子" />
-                    <CardContent align="left">
-                        <Typography gutterBottom variant="h4" component="div">
-                            {coInfo.characterName}
+                <Card sx={{width: 360 ,backgroundColor: '#FFF', boxShadow: 3, border:2, borderColor:'#8c7851'}}>
+                    <CardMedia sx={{ mt: 1, mr: 1, ml: 1, height: 250, borderRadius: 2}} image="/coharu.png" title={coInfo.character_name} />
+                    <CardContent sx={{pb:0}} align="left">
+                        <Typography  variant="h5" component="div">
+                            {coInfo.character_name}
                         </Typography>
                         <Typography variant="body1" align="left">
                             システム：
-                            {coInfo.gameSystem}
+                            {coInfo.game_system}
                         </Typography>
-                        <Typography variant="body2" >
-                            #{coInfo.tags[0]} #{coInfo.tags[1]} #{coInfo.tags[2]} #{coInfo.tags[3]}
-                        </Typography>
+                        <Stack direction="row" flexWrap="wrap">
+                            <TagButton key="tagbutton" variant="contained">
+                                #{coInfo.tags}
+                            </TagButton>
+                        </Stack>
                     </CardContent>
-                    <CardActions >
-                        <ColorButton variant="contained" onClick={() => {
-                            if (coInfo.gameSystem === "クトゥルフ神話TRPG") {
-                                coInfo.gameSystem = "coc"
-                                console.log(coInfo.gameSystem)
-                            }
-                            navigate(`/info/${coInfo.gameSystem}/${coInfo.id}`)
-                        }}> 詳細 </ColorButton>
-                        <ColorButton variant="contained"> 編集 </ColorButton>
-                        <ColorButton variant="contained"> 削除 </ColorButton>
-                    </CardActions>
-                    <CardContent align="left">
+                    <CardContent sx={{ pt: 0, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <Typography fontSize={10} color="text.secondary">
-                                作成日: {coInfo.createTime}　　更新日： {coInfo.updateTime}
+                            作成日: {coInfo.create_time}<br />
+                            更新日: {coInfo.update_time}
                         </Typography>
+                        <Stack direction="row" >
+                            <IconButton 
+                                sx={{color:"#020826", '&:hover': { color: (theme) => theme.palette.primary.main }}}
+                                onClick={() => {
+                                let systemPath = coInfo.game_system;
+                                if (systemPath === "クトゥルフ神話TRPG") {
+                                systemPath = "coc";
+                                }
+                                navigate(`/info/${systemPath}/${coInfo.id}`);
+                            }}>
+                                <InfoIcon />
+                            </IconButton>
+                            <IconButton sx={{color:"#020826", '&:hover': { color: (theme) => theme.palette.primary.main }}}>
+                                <EditIcon />
+                            </IconButton>
+                            <IconButton sx={{color:"#020826" , '&:hover': { color: (theme) => theme.palette.error.main }}}
+                                onClick={() => handleDelete(coInfo.id)}>
+                                <DeleteIcon />
+                            </IconButton>
+                        </Stack>
                     </CardContent>
                 </Card>
                 </Grid>

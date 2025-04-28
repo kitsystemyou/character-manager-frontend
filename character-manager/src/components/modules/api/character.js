@@ -12,12 +12,16 @@ const characterAPI = {
         const result = await axios.get(ENDPOINT + '/' + id);
         return result.data;
     },
+    async getCharacterList(){
+        const result = await axios.get(ENDPOINT + 'character')
+        return result.data
+    },
     async post(character) {
         const result = await axios.post(ENDPOINT + 'character_all_info', character);
         return result.data
     },
-    async delete(todo) {
-        const result = await axios.delete(ENDPOINT + '/' + todo.id);
+    async delete(id) {
+        const result = await axios.delete(ENDPOINT + id + '/delete');
         return result.data
     },
     async patch(todo) {

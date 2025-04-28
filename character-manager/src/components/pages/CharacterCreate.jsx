@@ -96,10 +96,6 @@ const characterStatusInit = {
     max_concern_point: ""
 }
 
-const characterSkillsInit = {
-    coc_skills: []
-}
-
 const characterBasicSkillsInit = {
     coc_skills: []
 }
@@ -181,13 +177,8 @@ const CharacterCreate = () => {
     const [characterSkillsTableStatus, setCharacterSkillsTableStatus]=useState(fields.BASIC_SKILLS_FIELDS);
 
     const getUuid = () => {
-        //ログイン時にuuidを取得するはずなので、一旦これで。ログイン機能周りができたら修正。
-        return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'
-        // .replace(/[xy]/g, (a) => {
-        //     let r = (new Date().getTime() + Math.random() * 16)%16 | 0, v = a == 'x' ? r : (r & 0x3 | 0x8);
-        //     return v.toString(16);
-        //  });
-    }
+        return crypto.randomUUID();
+      };
       
     const saveCharacter = () =>{
         var character = {}
