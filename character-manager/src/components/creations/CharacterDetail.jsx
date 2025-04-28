@@ -1,7 +1,6 @@
 import React from "react";
 import Grid from "@mui/material/Grid";
 import { styled } from '@mui/material/styles'
-import Typography from "@mui/material/Typography";
 import TextField from '@mui/material/TextField';
 import MuiAccordion from '@mui/material/Accordion';
 import MuiAccordionSummary from '@mui/material/AccordionSummary';
@@ -10,7 +9,7 @@ import AdditionalInfoReadOnly from "../creations/AdditionalInfoReadOnly";
 import CharacterBelongings from "../creations/CharacterBelongings";
 import CharacterMemo from "../creations/CharacterMemo";
 import CharacterOthers from "../creations/CharacterOthers";
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import CharacterDetailTabs from "../modules/CharacterDetailTabs";
 import { DataGrid } from '@mui/x-data-grid';
 
 const Icon = styled('img')({
@@ -61,7 +60,7 @@ const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
 
 
 export default function CharacterDetail(props){
-    const accordionInfo = [
+    const detailsInfo = [
         {
             Name: "追加情報",
             Contents: <AdditionalInfoReadOnly additionalInfo = {props.character.coc_meta_info} />
@@ -179,22 +178,8 @@ export default function CharacterDetail(props){
                     showCellRightBorder
                     showColumnRightBorder/>
                 </Grid>
-                <Grid item xs={9} sx={{ pl: 1 ,pr: 1 }}>
-                {
-                /* キャラクター一覧 */
-                    accordionInfo.map(ainfo => {
-                        return (
-                            <Accordion sx={{ boxShadow: 3}} key={ainfo.Name}>
-                            <AccordionSummary expandIcon={<ExpandMoreIcon style={{ color: "#020826" }} />}>
-                                <Typography variant="h5" style={{ color: '#020826' }}>{ainfo.Name}</Typography>
-                            </AccordionSummary>
-                            <AccordionDetails>
-                                {ainfo.Contents}
-                            </AccordionDetails>
-                            </Accordion>
-                        )
-                    })
-                }
+                <Grid item xs={9} sx={{ pl: 1 ,pr: 1, mb: 1}}>
+                    <CharacterDetailTabs dInfo = {detailsInfo}/>
                 </Grid>
             </Grid>
         </Grid>

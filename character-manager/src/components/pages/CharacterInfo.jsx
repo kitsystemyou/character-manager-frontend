@@ -87,9 +87,9 @@ const CharacterInfo = () => {
             <Header />
             <Card sx={{ m:2, border:3, borderColor: '#8c7851' }}>
                 <Box sx={{borderBottom:3, borderBottomColor:'#8c7851', backgroundColor: '#F9F4EF'}}>
-                    <Grid container>
+                    <Grid container alignItems="center">
                         <Grid item sx={{m:1}}>
-                            <Typography sx={{ml:1}} variant="h4" color='#020826' align='left'>キャラクター詳細</Typography>
+                            <Typography sx={{ml:1}} variant="h5" color='#020826' align='left'>キャラクター詳細</Typography>
                         </Grid>
                         <div style={{ flexGrow: 1 }}></div>
                         <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} sx={{m:1}}>編集</Button>
