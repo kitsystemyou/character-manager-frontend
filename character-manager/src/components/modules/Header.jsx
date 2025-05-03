@@ -35,7 +35,7 @@ export default function ButtonAppBar() {
             <Box>きゃらまね！</Box>
           </Typography>
           <div style={{ flexGrow: 1 }}></div>
-          <Button sx={{ color: "#020826", backgroundColor: "#f9f4ef" }} onClick={() => navigate('/create')}>
+          <Button sx={{ color: "#020826", backgroundColor: "#f9f4ef" }} onClick={() => navigate('/character/create')}>
             <CreateIcon />
             新規作成
           </Button>

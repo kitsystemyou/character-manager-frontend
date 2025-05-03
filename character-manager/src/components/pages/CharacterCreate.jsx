@@ -196,7 +196,7 @@ const CharacterCreate = () => {
         character["character"] = character_data
         characterAPI.post(character).then( characterRes => {
                 console.log("characterRes", characterRes);
-                navigate(`/info/${characterRes.result.game_system}/${characterRes.result.id}`)
+                navigate(`/characters/${characterRes.result.id}`)
             }
         )        
     }

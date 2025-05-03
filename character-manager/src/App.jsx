@@ -2,6 +2,7 @@ import './App.css';
 import { Routes, Route} from "react-router-dom";
 import CharacterList from './components/pages/CharacterList'
 import CharacterCreate from './components/pages/CharacterCreate'
+import CharacterEdit from './components/pages/CharacterEdit'
 import CharacterInfo from './components/pages/CharacterInfo'
 
 const App = () => {
@@ -9,8 +10,9 @@ const App = () => {
     <div className='App'>
       <Routes>
         <Route path='/' element={<CharacterList />} />
-        <Route path='/create' element={<CharacterCreate />} />
-        <Route path='/info/:game_system/:character_id' element={<CharacterInfo />} />
+        <Route path='/character/create' element={<CharacterCreate />} />
+        <Route path='/characters/:character_id/edit' element={<CharacterEdit />} />
+        <Route path='/characters/:character_id' element={<CharacterInfo />} />
       </Routes>
     </div>
   );

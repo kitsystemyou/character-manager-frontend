@@ -42,6 +42,10 @@ export default function CharacterCard(){
     }
     };
 
+    const handleEdit = async(id) => {
+        navigate(`/characters/${id}/edit`);
+    };
+    
     const handleDelete = async (id) => {
     if (window.confirm('本当に削除しますか？')) {
         try {
@@ -89,11 +93,12 @@ export default function CharacterCard(){
                                 if (systemPath === "クトゥルフ神話TRPG") {
                                 systemPath = "coc";
                                 }
-                                navigate(`/info/${systemPath}/${coInfo.id}`);
+                                navigate(`/characters/${coInfo.id}`);
                             }}>
                                 <InfoIcon />
                             </IconButton>
-                            <IconButton sx={{color:"#020826", '&:hover': { color: (theme) => theme.palette.primary.main }}}>
+                            <IconButton sx={{color:"#020826", '&:hover': { color: (theme) => theme.palette.primary.main }}}
+                                onClick={() => handleEdit(coInfo.id)}>
                                 <EditIcon />
                             </IconButton>
                             <IconButton sx={{color:"#020826" , '&:hover': { color: (theme) => theme.palette.error.main }}}
