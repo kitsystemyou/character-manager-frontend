@@ -19,18 +19,6 @@ export default function AdditionalInfo(props){
             </FormControl>
           </Grid>
           <Grid item xs={12} container>
-            <Grid item xs={6} sx={{pr:1}}>
-              <FormControl sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="height" label="身長" value={props.additionalInfo.height} variant="outlined" InputProps={{readOnly: true}}/>
-              </FormControl>  
-            </Grid> 
-            <Grid item xs={6} sx={{pl:1}}>         
-              <FormControl sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="weight" label="体重" value={props.additionalInfo.weight} variant="outlined" InputProps={{readOnly: true}}/>
-              </FormControl>
-            </Grid>
-          </Grid>
-          <Grid item xs={12} container>
             <Grid item xs={4} sx={{pr:1}}>
               <FormControl sx={{ m: 1 , width: 1 , backgroundColor:'white' }} variant="outlined">
               <TextField id="hairColor" label="髪の色" value={props.additionalInfo.hair_color} variant="outlined" InputProps={{readOnly: true}}/>
@@ -46,11 +34,6 @@ export default function AdditionalInfo(props){
               <TextField id="skinColor" label="肌の色" value={props.additionalInfo.skin_color} variant="outlined" InputProps={{readOnly: true}}/>
               </FormControl>
             </Grid>
-          </Grid>
-          <Grid item xs>
-            <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined">
-              <TextField id="memo" label="その他・メモ欄" variant="outlined" value={props.additionalInfo.memo} rows={5} multiline InputProps={{readOnly: true}}/>
-            </FormControl>
           </Grid>
         </Grid>
       </Grid>

@@ -89,9 +89,10 @@ const CharacterInfo = () => {
                 <Box sx={{borderBottom:3, borderBottomColor:'#8c7851', backgroundColor: '#F9F4EF'}}>
                     <Grid container alignItems="center">
                         <Grid item sx={{m:1}}>
-                            <Typography sx={{ml:1}} variant="h5" color='#020826' align='left'>キャラクター詳細</Typography>
+                            <Typography sx={{ml:1}} variant="h5" color='#020826' align='left'>{oneCharacter.character_name}</Typography>
                         </Grid>
                         <div style={{ flexGrow: 1 }}></div>
+                        <Typography sx={{ml:1}} variant="h5" color='#020826' align='left'>PL: {oneCharacter.player_name} </Typography>
                         <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} sx={{m:1}}>編集</Button>
                         <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} sx={{m:1}}>出力</Button>
                     </Grid>
