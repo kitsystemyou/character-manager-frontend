@@ -13,7 +13,7 @@ export default function AdditionalInfo(props){
         <Grid item xs container direction="column">
           <Grid item xs>
             <FormControl fullWidth sx={{ m: 1 , backgroundColor:'white' }} variant="outlined"
-            onChange={(event)=>props.setAdditionalInfo({...props.additionalInfo, edu_backgroud:event.target.value})}>
+            onChange={(event)=>props.setAdditionalInfo({...props.additionalInfo, edu_background:event.target.value})}>
               <TextField id="eduBackground" label="学校・学位" variant="outlined"/>
             </FormControl>
           </Grid>
