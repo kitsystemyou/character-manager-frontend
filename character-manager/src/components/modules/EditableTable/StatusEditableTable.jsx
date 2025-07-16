@@ -3,41 +3,119 @@ import { DataGrid } from '@mui/x-data-grid';
 import * as fields from "../ConstantTableFields";
 import _ from 'lodash';
 
-export default function CharacterStatus(props) {
-    useEffect(() => props.setCharacterStatus(props.characterStatus),[props]);
-    useEffect(() => props.setCharacterSkillsTableStatus(props.characterSkillsTableStatus),[props]);
-    const [status, setStatus] = useState(rows);
+export default function StatusEditableTable(props) {
+    // props.characterStatusの値をrowsに反映
+    const createRowsFromStatus = (status) => {
+        // fields.STATUS_FIELDSをベースに、props.characterStatusの値を反映
+        const rows = _.cloneDeep(fields.STATUS_FIELDS);
+        // 0: 基本値, 1: 増加分, 2: 一時的, 3: 合計
+        // 合計行（3番目）にprops.characterStatusの値をセット
+        if (status) {
+            rows[0]["STR"] = status.str ?? "";
+            rows[0]["CON"] = status.con ?? "";
+            rows[0]["POW"] = status.pow ?? "";
+            rows[0]["DEX"] = status.dex ?? "";
+            rows[0]["APP"] = status.app ?? "";
+            rows[0]["SIZ"] = status.size ?? "";
+            rows[0]["INT"] = status.inte ?? "";
+            rows[0]["EDU"] = status.edu ?? "";
+            rows[0]["HP"] = status.hp ?? "";
+            rows[0]["MP"] = status.mp ?? "";
+            rows[0]["SAN"] = status.init_san ?? "";
+            rows[0]["IDEA"] = status.idea ?? "";
+            rows[0]["LUCK"] = status.luck ?? "";
+            rows[0]["KNOWLEDGE"] = status.knowledge ?? "";
+            // rows[1]["STR"] = status.str ?? "";
+            // rows[1]["CON"] = status.con ?? "";
+            // rows[1]["POW"] = status.pow ?? "";
+            // rows[1]["DEX"] = status.dex ?? "";
+            // rows[1]["APP"] = status.app ?? "";
+            // rows[1]["SIZ"] = status.size ?? "";
+            // rows[1]["INT"] = status.inte ?? "";
+            // rows[1]["EDU"] = status.edu ?? "";
+            // rows[1]["HP"] = status.hp ?? "";
+            // rows[1]["MP"] = status.mp ?? "";
+            // rows[1]["SAN"] = status.init_san ?? "";
+            // rows[1]["IDEA"] = status.idea ?? "";
+            // rows[1]["LUCK"] = status.luck ?? "";
+            // rows[1]["KNOWLEDGE"] = status.knowledge ?? "";
+            // rows[2]["STR"] = status.str ?? "";
+            // rows[2]["CON"] = status.con ?? "";
+            // rows[2]["POW"] = status.pow ?? "";
+            // rows[2]["DEX"] = status.dex ?? "";
+            // rows[2]["APP"] = status.app ?? "";
+            // rows[2]["SIZ"] = status.size ?? "";
+            // rows[2]["INT"] = status.inte ?? "";
+            // rows[2]["EDU"] = status.edu ?? "";
+            // rows[2]["HP"] = status.hp ?? "";
+            // rows[2]["MP"] = status.mp ?? "";
+            // rows[2]["SAN"] = status.init_san ?? "";
+            // rows[2]["IDEA"] = status.idea ?? "";
+            // rows[2]["LUCK"] = status.luck ?? "";
+            // rows[2]["KNOWLEDGE"] = status.knowledge ?? "";
+            // rows[3]["STR"] = status.str ?? "";
+            // rows[3]["CON"] = status.con ?? "";
+            // rows[3]["POW"] = status.pow ?? "";
+            // rows[3]["DEX"] = status.dex ?? "";
+            // rows[3]["APP"] = status.app ?? "";
+            // rows[3]["SIZ"] = status.size ?? "";
+            // rows[3]["INT"] = status.inte ?? "";
+            // rows[3]["EDU"] = status.edu ?? "";
+            // rows[3]["HP"] = status.hp ?? "";
+            // rows[3]["MP"] = status.mp ?? "";
+            // rows[3]["SAN"] = status.init_san ?? "";
+            // rows[3]["IDEA"] = status.idea ?? "";
+            // rows[3]["LUCK"] = status.luck ?? "";
+            // rows[3]["KNOWLEDGE"] = status.knowledge ?? "";
+        }
+        return rows;
+    };
 
+    const [status, setStatus] = useState(createRowsFromStatus(props.characterStatus));
+
+    // props.characterStatusが変わったら反映
+    useEffect(() => {
+        setStatus(createRowsFromStatus(props.characterStatus));
+    }, [props.characterStatus]);
+    useEffect(() => props.setCharacterSkillsTableStatus(props.characterSkillsTableStatus),[props]);
     const changeCell = (v) => {
         let newValue = _.cloneDeep(status);
-        let idx = status.findIndex(d => d.id === v.id);        
-        if (idx === 0 && (v.field === "SAN" || v.field === "HP" || v.field === "MP" || v.field === "IDEA" || v.field === "LUCK" || v.field === "KNOWLEDGE")){
-            v.value = status[0][v.field]
-        }
-        let sum = status[0][v.field] + status[1][v.field] + status[2][v.field] - status[idx][v.field] + v.value;
-        let damage_bonus = "";
+        let idx = status.findIndex(d => d.id === v.id);
 
+        // 値を更新
         newValue[idx][v.field] = v.value;
-        newValue[3][v.field] = sum;
-        
+
+        // 各列ごとに現在値（合計行）を再計算
+        const fieldsList = [
+            "STR", "CON", "POW", "DEX", "APP", "SIZ", "INT", "EDU", "HP", "MP",
+            "SAN", "IDEA", "LUCK", "KNOWLEDGE"
+        ];
+        fieldsList.forEach(field => {
+            newValue[3][field] =
+                (Number(newValue[0][field]) || 0) +
+                (Number(newValue[1][field]) || 0) +
+                (Number(newValue[2][field]) || 0);
+        });
+
+        // 既存の特殊処理
         if(v.field === "POW"){
-            newValue[0]["SAN"] = sum*5;
-            newValue[3]["SAN"] = sum*5;
-            newValue[0]["LUCK"] = sum*5;
-            newValue[0]["MP"] = sum;
+            newValue[0]["SAN"] = newValue[3]["POW"]*5;
+            newValue[3]["SAN"] = newValue[3]["POW"]*5;
+            newValue[0]["LUCK"] = newValue[3]["POW"]*5;
+            newValue[0]["MP"] = newValue[3]["POW"];
         }
         if(v.field === "DEX"){
             let newSkillsValue = _.cloneDeep(props.characterSkillsTableStatus);
-            newSkillsValue[6].init_point = sum*2;   //定義の6番目の要素に「回避」があるので、その初期値を変更
+            newSkillsValue[6].init_point = newValue[3]["DEX"]*2; //定義の6番目の要素に「回避」があるので、その初期値を変更
             props.setCharacterSkillsTableStatus(newSkillsValue);
         }
         if(v.field === "INT"){
-            newValue[0]["IDEA"] = sum*5;
-        }        
+            newValue[0]["IDEA"] = newValue[3]["INT"]*5;
+        }
         if(v.field === "EDU"){
-            newValue[0]["KNOWLEDGE"] = sum*5;
+            newValue[0]["KNOWLEDGE"] = newValue[3]["EDU"]*5;
             let newSkillsValue = _.cloneDeep(props.characterSkillsTableStatus);
-            newSkillsValue[47].init_point = sum*5;  //定義の47番目の要素に「母国語」があるので、その初期値を変更
+            newSkillsValue[47].init_point = newValue[3]["EDU"]*5;  //定義の47番目の要素に「母国語」があるので、その初期値を変更
             props.setCharacterSkillsTableStatus(newSkillsValue);
         }
         if(v.field === "CON" || v.field === "SIZ"){
@@ -45,8 +123,13 @@ export default function CharacterStatus(props) {
         }
 
         setStatus(newValue);
-        if(v.field === "STR" || v.field === "SIZ"){ damage_bonus = calcDamageBonus(newValue[3]["STR"], newValue[3]["SIZ"]); }
-        setTableValue(sum, v.field, damage_bonus, newValue[0]["HP"]);
+
+        // ダメージボーナス等の更新
+        let damage_bonus = "";
+        if(v.field === "STR" || v.field === "SIZ"){
+            damage_bonus = calcDamageBonus(newValue[3]["STR"], newValue[3]["SIZ"]);
+        }
+        setTableValue(newValue[3][v.field], v.field, damage_bonus, newValue[0]["HP"]);
     }
 
     const setTableValue = (sum,field,damage_bonus,hp) => {
@@ -118,5 +201,3 @@ const columns = [
     { field: 'LUCK', headerName: '幸運', type: 'number', flex: 1, editable: true, sortable: false, headerAlign: 'center' },
     { field: 'KNOWLEDGE', headerName: '知識', type: 'number', flex: 1, editable: true, sortable: false, headerAlign: 'center' },
 ]
-
-const rows = fields.STATUS_FIELDS;

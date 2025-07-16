@@ -182,12 +182,12 @@ const CharacterEdit = () => {
     useEffect(() => {
         const fetchCharacterData = async () => {
             try {
-                const characterRes = await characterAPI.getAll(character_id);
+                const characterRes = await characterAPI.getAll(character_id);   // 作成済のキャラクター情報を取得
                 const characterData = characterRes.result;
                 console.log("characterData", characterData);
-                setbasicCharaInfo(characterData.basicCharaInfo|| basicCharaInfoInit);
-                setAdditionalInfo(characterData.additionalInfo || additionalInfoInit);
-                setCharacterStatus(characterData.characterStatus || characterStatusInit);
+                setbasicCharaInfo(characterData.basic_character_info|| basicCharaInfoInit);
+                setAdditionalInfo(characterData.coc_meta_info || additionalInfoInit);
+                setCharacterStatus(characterData.coc_status_parameters || characterStatusInit);
                 setCharacterBasicSkills(characterData.characterBasicSkills || characterBasicSkillsInit);
                 setCharacterBattleSkills(characterData.characterBattleSkills || characterBattleSkillsInit);
                 setCharacterBelongings(characterData.characterBelongings || characterBelongingsInit);
@@ -209,6 +209,7 @@ const CharacterEdit = () => {
         let character_data = {};
         character_data.user_id = getUuid(); //TODO:既存のUUIDを使用する
         character_data.game_system = "coc"; //TODO:選択したシステムを使用する
+        character_data.prof_img_path = "";
         console.log(basicCharaInfo)
         Object.assign(character_data,basicCharaInfo)
         Object.assign(character_data.coc_meta_info, additionalInfo)

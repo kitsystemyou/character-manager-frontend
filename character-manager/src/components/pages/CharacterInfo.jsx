@@ -14,11 +14,13 @@ const CharacterInfo = () => {
     {
         "id": 1,
         "user_id": "error",
-        "character_name": "エラー",
-        "player_name": "エラー",
-        "game_system": "エラー",
-        "prof_img_path": "",
-        "tags": "エラー",
+        "basic_character_info": {
+            "character_name": "エラー",
+            "game_system": "エラー",
+            "player_name": "エラー",
+            "prof_img_path": "",
+            "tags": "エラー",
+        },
         "create_time": "1970-01-01",
         "update_time": "1970-01-01",
         "delete_time": "1970-01-01",
@@ -89,10 +91,10 @@ const CharacterInfo = () => {
                 <Box sx={{borderBottom:3, borderBottomColor:'#8c7851', backgroundColor: '#F9F4EF'}}>
                     <Grid container alignItems="center">
                         <Grid item sx={{m:1}}>
-                            <Typography sx={{ml:1}} variant="h5" color='#020826' align='left'>{oneCharacter.character_name}</Typography>
+                            <Typography sx={{ml:1}} variant="h5" color='#020826' align='left'>{oneCharacter.basic_character_info.character_name}</Typography>
                         </Grid>
                         <div style={{ flexGrow: 1 }}></div>
-                        <Typography sx={{ml:1}} variant="h5" color='#020826' align='left'>PL: {oneCharacter.player_name} </Typography>
+                        <Typography sx={{ml:1}} variant="h5" color='#020826' align='left'>PL: {oneCharacter.basic_character_info.player_name} </Typography>
                         <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} sx={{m:1}}>編集</Button>
                         <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} sx={{m:1}}>出力</Button>
                     </Grid>

@@ -185,6 +185,7 @@ const CharacterCreate = () => {
         let character_data = {};
         character_data.user_id = getUuid();
         character_data.game_system = "coc";
+        character_data.prof_img_path = "";
         console.log(basicCharaInfo)
         Object.assign(character_data,basicCharaInfo)
         Object.assign(character_data.coc_meta_info, additionalInfo)
