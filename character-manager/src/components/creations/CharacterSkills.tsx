@@ -1,0 +1,44 @@
+import React, { useEffect } from "react";
+import Grid from "@mui/material/Grid";
+import BasicSkillsEditableTable from "../modules/EditableTable/BasicSkillsEditableTable";
+import BattleSkillsEditableTable from "../modules/EditableTable/BattleSkillsEditableTable";
+import { Typography } from "@mui/material";
+
+interface CharacterSkillsType {
+  coc_skills: any[];
+}
+type Props = {
+  characterBasicSkills: CharacterSkillsType;
+  setCharacterBasicSkills: React.Dispatch<React.SetStateAction<CharacterSkillsType>>;
+  characterBattleSkills: CharacterSkillsType;
+  setCharacterBattleSkills: React.Dispatch<React.SetStateAction<CharacterSkillsType>>;
+  characterSkillsTableStatus: any;
+  setCharacterSkillsTableStatus: React.Dispatch<React.SetStateAction<any>>;
+};
+
+const CharacterSkills: React.FC<Props> = (props) => {
+    useEffect(() => props.setCharacterBasicSkills(props.characterBasicSkills), [props]);
+    useEffect(() => props.setCharacterBattleSkills(props.characterBattleSkills), [props]);
+    useEffect(() => props.setCharacterSkillsTableStatus(props.characterSkillsTableStatus), [props]);
+
+    return (
+        <Grid item xs container direction="column">
+            <Typography variant="h4" style={{ textAlign: 'left' }} sx={{ mt: 2, mb: 2 }}>基本技能</Typography>
+            <Grid item container sx={{ mb: 2 }}>
+                <BasicSkillsEditableTable 
+                    characterSkills = {props.characterBasicSkills}
+                    setCharacterSkills = {props.setCharacterBasicSkills}
+                    characterSkillsTableStatus = {props.characterSkillsTableStatus}
+                    setCharacterSkillsTableStatus = {props.setCharacterSkillsTableStatus}/>
+            </Grid>
+            <Typography variant="h4" style={{ textAlign: 'left' }} sx={{ mt: 2, mb: 2 }}>戦闘技能</Typography>
+            <Grid item container sx={{ mb: 2 }}>
+                <BattleSkillsEditableTable 
+                    characterSkills = {props.characterBattleSkills}
+                    setCharacterSkills = {props.setCharacterBattleSkills}/>
+            </Grid>
+        </Grid>
+    );
+}
+
+export default CharacterSkills;
