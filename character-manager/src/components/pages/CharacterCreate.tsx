@@ -17,6 +17,7 @@ import { useNavigate } from "react-router-dom";
 import * as fields from "../modules/ConstantTableFields";
 import characterAPI from "../modules/api/character";
 import FloatingButton from "../modules/FloatingButton";
+import ToolsButton from "../modules/ToolsButton";
 
 // 型定義の追加
 interface BasicCharaInfo {
@@ -263,6 +264,13 @@ const CharacterCreate: React.FC = () => {
         )        
     }
 
+    const roll3d6AddToSTR = () => {
+        const roll = () => Math.floor(Math.random() * 6) + 1;
+        const total = roll() + roll() + roll();
+        setCharacterStatus(prev => ({ ...prev, str: prev.str + total }));
+        console.log(`3D6の合計: ${total} (STRに加算されました)`);
+    };
+
     const accordionInfo = [
         {
             Name: "基本情報",
@@ -332,6 +340,7 @@ const CharacterCreate: React.FC = () => {
                 ))
             }
             <div>
+                <ToolsButton onRoll3d6AddToSTR={roll3d6AddToSTR} />
                 <FloatingButton />
             </div>
         </>

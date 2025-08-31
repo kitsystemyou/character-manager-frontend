@@ -8,7 +8,7 @@ const FloatingButton: React.FC = () => {
       color="primary"
       style={{
         position: "fixed",
-        bottom: "20px",
+        bottom: "90px",
         right: "20px",
         backgroundColor: "#8c7851",
         color: "#FFF",
