@@ -11,6 +11,13 @@ import Grid from "@mui/material/Grid";
 import characterAPI from "../modules/api/character"
 
 // 型定義
+interface Basic_Character_Info {
+  character_name: string;
+  player_name: string;
+  game_system: string;
+  prof_img_path: string;
+  tags: string;
+}
 interface CocMetaInfo {
   job: string;
   sex: string;
@@ -58,14 +65,10 @@ interface CocSkill {
 interface CharacterType {
   id: number | string;
   user_id: string;
-  character_name: string;
-  player_name: string;
-  game_system: string;
-  prof_img_path: string;
-  tags: string;
   create_time: string;
   update_time: string;
   delete_time: string;
+  basic_character_info: Basic_Character_Info;
   coc_meta_info: CocMetaInfo;
   coc_status_parameters: CocStatusParameters;
   coc_skills: CocSkill[];
@@ -75,14 +78,16 @@ const CharacterInfo = () => {
     const baseCharacter: CharacterType = {
         id: 1,
         user_id: "error",
-        character_name: "エラー",
-        player_name: "エラー",
-        game_system: "エラー",
-        prof_img_path: "",
-        tags: "エラー",
         create_time: "1970-01-01",
         update_time: "1970-01-01",
         delete_time: "1970-01-01",
+        basic_character_info: {
+            character_name: "エラー",
+            player_name: "エラー",
+            game_system: "エラー",
+            prof_img_path: "",
+            tags: "エラー",
+        },
         coc_meta_info: {
             job: "エラー",
             sex: "エラー",
@@ -130,6 +135,10 @@ const CharacterInfo = () => {
     const [oneCharacter, setCharacter] = useState<CharacterType>(baseCharacter);
     // キャラクターID をpathパラメータから取得
     const { game_system, character_id } = useParams<{ game_system: string; character_id: string }>();
+    if(game_system !== "coc") {
+        throw new Error("対応していないゲームシステムです");
+    }
+    else{
     useEffect(() => {
         if (!character_id) return;
         characterAPI.getAll(character_id).then((characterRes: any) => {
@@ -137,9 +146,11 @@ const CharacterInfo = () => {
                 const obj = characterRes.result.coc_skills[i];
                 characterRes.result.coc_skills[i].summary = obj.concern_point + obj.grow + obj.job_point + obj.other;
             }
+        console.log("hghoge",characterRes.result);
             setCharacter(characterRes.result);
         });
     }, [character_id]);
+    }
 
     return (
         <div>
@@ -148,10 +159,10 @@ const CharacterInfo = () => {
                 <Box sx={{ borderBottom: 3, borderBottomColor: '#8c7851', backgroundColor: '#F9F4EF' }}>
                     <Grid container alignItems="center">
                         <Grid item sx={{ m: 1 }}>
-                            <Typography sx={{ ml: 1 }} variant="h5" color='#020826' align='left'>{oneCharacter.character_name}</Typography>
+                            <Typography sx={{ ml: 1 }} variant="h5" color='#020826' align='left'>{oneCharacter.basic_character_info.character_name}</Typography>
                         </Grid>
                         <div style={{ flexGrow: 1 }}></div>
-                        <Typography sx={{ ml: 1 }} variant="h5" color='#020826' align='left'>PL: {oneCharacter.player_name} </Typography>
+                        <Typography sx={{ ml: 1 }} variant="h5" color='#020826' align='left'>PL: {oneCharacter.basic_character_info.player_name} </Typography>
                         <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} sx={{ m: 1 }}>編集</Button>
                         <Button variant="contained" style={{ backgroundColor: '#8c7851', borderColor: '#8c7851', color: '#FFF' }} sx={{ m: 1 }}>出力</Button>
                     </Grid>

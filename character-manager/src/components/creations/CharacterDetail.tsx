@@ -2,9 +2,6 @@ import React from "react";
 import Grid from "@mui/material/Grid";
 import { styled } from '@mui/material/styles'
 import TextField from '@mui/material/TextField';
-import MuiAccordion from '@mui/material/Accordion';
-import MuiAccordionSummary from '@mui/material/AccordionSummary';
-import MuiAccordionDetails from '@mui/material/AccordionDetails';
 import AdditionalInfoReadOnly from "../creations/AdditionalInfoReadOnly";
 import CharacterBelongings from "../creations/CharacterBelongings";
 import CharacterMemo from "../creations/CharacterMemo";
@@ -12,6 +9,13 @@ import CharacterOthers from "../creations/CharacterOthers";
 import CharacterDetailTabs from "../modules/CharacterDetailTabs";
 import { DataGrid } from '@mui/x-data-grid';
 
+interface Basic_Character_Info {
+  character_name: string;
+  player_name: string;
+  game_system: string;
+  prof_img_path: string;
+  tags: string;
+}
 interface CocMetaInfo {
   job: string;
   sex: string;
@@ -59,14 +63,10 @@ interface CocSkill {
 interface CharacterType {
   id: number | string;
   user_id: string;
-  character_name: string;
-  player_name: string;
-  game_system: string;
-  prof_img_path: string;
-  tags: string;
   create_time: string;
   update_time: string;
   delete_time: string;
+  basic_character_info: Basic_Character_Info;
   coc_meta_info: CocMetaInfo;
   coc_status_parameters: CocStatusParameters;
   coc_skills: CocSkill[];
@@ -81,46 +81,6 @@ const Icon = styled('img')({
     maxWidth: '100%',
     maxHeight: '100%',
 });
-
-const Accordion = styled((props: any) => (
-    <MuiAccordion  {...props} />
-))(({theme}) => ({
-    root: {
-        paddingTop: theme.spacing(2),
-        paddingRight: theme.spacing(7),
-        paddingLeft: theme.spacing(7),
-    },
-    marginRight: theme.spacing(1),
-    '&:not(:last-child)': {
-        borderBottom: 0,
-        marginLeft: theme.spacing(1),
-        marginRight: theme.spacing(1),
-    },
-    '&:before': {
-        display: 'none',
-    },
-    '&.MuiAccordion-root.Mui-expanded': { // 開いているときの枠線を削除
-        border: '3px solid #8c7851',
-    },
-    '&.MuiAccordion-root:not(.Mui-expanded)': { 
-        border: '3px solid #8c7851', 
-    },
-}));
-
-const AccordionSummary = styled((props: any) => (
-    <MuiAccordionSummary {...props} />
-))(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#F9F4EF',
-}));
-
-const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
-    backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#FFF',
-    padding: theme.spacing(2),
-    borderTop: '3px solid',
-    borderBottom: '3px solid',
-    borderColor: '#8c7851'
-}));
-
 
 const CharacterDetail: React.FC<Props> = (props) => {
     const detailsInfo = [
@@ -226,7 +186,7 @@ const CharacterDetail: React.FC<Props> = (props) => {
                     <TextField fullWidth id="standard-read-only-input" variant="standard" label="DB" value={props.character.coc_status_parameters.damage_bonus} InputProps={{readOnly: true}}/>
                 </Grid>
                 <Grid item xs={12} sx={{ pr: 1}}>
-                    <TextField fullWidth id="standard-read-only-input" variant="standard" label="タグ名" value={props.character.tags} InputProps={{readOnly: true}}/>
+                    <TextField fullWidth id="standard-read-only-input" variant="standard" label="タグ名" value={props.character.basic_character_info.tags} InputProps={{readOnly: true}}/>
                 </Grid>
             </Grid>
             <Grid item xs={12}>
