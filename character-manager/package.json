@@ -13,9 +13,9 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^1.8.4",
     "npm-check-updates": "^16.6.2",
-    "react": "^17.0.2",
+    "react": "^18.3.1",
     "react-beautiful-dnd": "^13.1.0",
-    "react-dom": "^17.0.2",
+    "react-dom": "^18.3.1",
     "react-router": "^6.3.0",
     "react-router-dom": "^6.6.1",
     "react-scripts": "^5.0.0",
@@ -25,8 +25,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "json-api": "npx json-server -w ./db/db.json -p 3003"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": [
@@ -47,6 +46,8 @@
     ]
   },
   "devDependencies": {
+    "@types/lodash": "^4.17.20",
+    "@types/react-dom": "^19.1.9",
     "json-server": "^0.17.3"
   }
 }

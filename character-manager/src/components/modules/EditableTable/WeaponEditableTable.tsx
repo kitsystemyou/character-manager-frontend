@@ -1,0 +1,34 @@
+import React from "react";
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import * as fields from "../ConstantTableFields";
+
+const columns: GridColDef[] = [
+    { field: 'weapon', headerName: '武器', type: 'string', flex: 4, editable: true, sortable: true, headerAlign: 'center' },
+    { field: 'skill_point', headerName: '技能値', type: 'number', flex: 2, editable: true, sortable: false, headerAlign: 'center' },
+    { field: 'damage', headerName: 'ダメージ', type: 'string', flex: 2, editable: true, sortable: false, headerAlign: 'center' },
+    { field: 'range', headerName: '射程', type: 'string', flex: 2, editable: true, sortable: false, headerAlign: 'center' },
+    { field: 'number_of_attacks', headerName: '攻撃回数', type: 'number', flex: 2, editable: true, sortable: false, headerAlign: 'center' },
+    { field: 'ammunition_capacity', headerName: '装弾数', type: 'number', flex: 2, editable: true, sortable: false, headerAlign: 'center' },
+    { field: 'failure_value', headerName: '故障値', type: 'number', flex: 2, editable: true, sortable: false, headerAlign: 'center' },
+    { field: 'endurance', headerName: '耐久力', type: 'number', flex: 2, editable: true, sortable: false, headerAlign: 'center' }
+];
+
+const rows = fields.WEAPON_DATA_FIELDS;
+
+const WeaponEditableTable: React.FC = () => {
+    return (
+        <div style={{ width: '100%' }}>
+            <DataGrid
+                autoHeight
+                rows={rows}
+                columns={columns}
+                disableColumnMenu={true}
+                hideFooter
+                showCellRightBorder
+                showColumnRightBorder
+            />
+        </div>
+    );
+}
+
+export default WeaponEditableTable;
